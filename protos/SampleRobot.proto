@@ -1,0 +1,121 @@
+#VRML_SIM R2023b utf8
+# Describe the functionality of your PROTO here.
+
+
+PROTO SampleRobot [
+  field SFVec3f translation 0 0 0
+  field SFRotation rotation 0 0 1 0
+  field SFString name "Sample Robot"
+  field SFString controller "nt_robot_controller"
+  field MFString controllerArgs ["{\"type\": \"motor\", \"value\": {\"name\": \"arm_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 80.0, \"count\": 2, \"mechanically_inverted\": false}}"] 
+  field SFString window "<generic>"
+  field SFBool   supervisor FALSE
+  field SFBool   synchronization TRUE
+  field SFBool   selfCollision FALSE
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    controller IS controller
+    children [
+      Accelerometer {
+      }
+      Gyro {
+      }
+      InertialUnit {
+      }
+      DEF CHASSIS_SHAPES Pose {
+        translation 0.0 0.0 0.0
+        rotation 0.0 0.0 0.0 0.0
+        children [
+          DEF CHASSIS Shape {
+           appearance DEF METAL_PART BrushedAluminium {
+              textureTransform TextureTransform {
+                scale 20 20
+              }
+            }
+            geometry Mesh {
+              url "../models/TestChassis/Swerve.dae"
+            }
+          }
+        ]
+      }
+      DEF ARM_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0.0 0.0 0.0
+          axis 0 1 0
+          staticFriction 1.0
+          dampingConstant 0.1
+        }
+        device [
+          PositionSensor {
+            name "arm_cancoder"
+          }
+          RotationalMotor {
+            name "arm_motor"
+            maxTorque 999999
+          }
+        ]
+        endPoint DEF ARM Solid {
+          translation 0.0 0.0 0.0
+          children [
+            DEF ARM_SH Shape {
+              geometry Mesh {
+                url "../models/TestChassis/Arm.dae"
+              }
+            
+            }
+          ]
+          boundingObject DEF ARM_BO Group {
+            children [
+              Pose {
+                translation 0.5 0.01 0.0
+                rotation 0.0 0.0 0.0 0.0
+                children [
+                  Box {
+                    size 1.0 0.25 0.1
+                  }
+                ]
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 12.0
+            centerOfMass [
+              1.5 0.0 0.05
+            ]
+          }
+        }
+      }
+    ]
+    boundingObject DEF BODY_BO Group {
+      children [
+        Pose {
+          translation 0.0 0.0 0.0
+          rotation 0.0 0.0 0.0 0.0
+          children [
+            Box {
+              size 0.8 0.67 0.1
+            }
+          ]
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 14.40973585
+      centerOfMass [
+        0.0 0.0 0.0
+      ]
+    }
+    controller IS controller
+    controllerArgs IS controllerArgs
+    window IS window
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    supervisor IS supervisor
+  }
+}

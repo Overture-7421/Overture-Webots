@@ -3,94 +3,30 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "../protos/SampleRobot.proto"
 
 WorldInfo {
   basicTimeStep 16
   optimalThreadCount 4
 }
 Viewpoint {
-  orientation -0.23112605943694325 -0.21468096718335952 0.9489430051264238 4.796259434405449
-  position -0.10968870868375975 2.014601999862178 1.0932338150274612
+  orientation 0.33078015610455347 0.750734018801075 -0.5718242049286077 1.1666310931576578
+  position -23.315678925570623 19.252531688945233 42.134630187077086
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
-Robot {
-  translation 0.24373640487301038 -0.4425502940776123 0.05901342156366485
-  rotation -0.00021943378044701208 0.0015895873645621287 -0.9999987125295845 0.364398955941323
-  children [
-    HingeJoint {
-      jointParameters HingeJointParameters {
-        position 0.019460860565174477
-        axis 0 1 0
-      }
-      device [
-        RotationalMotor {
-          name "arm_motor"
-          maxTorque 99999
-        }
-        PositionSensor {
-        }
-      ]
-      endPoint Solid {
-        translation -0.07062758547392163 -2.838189027548615e-06 0.0012095201747641454
-        rotation 0.00010272996210177616 -0.9999997086973376 -0.0007563410572871548 3.1221302902269525
-        children [
-          CadShape {
-            url [
-              "../models/TestChassis/Arm.dae"
-            ]
-          }
-        ]
-        boundingObject Mesh {
-          url [
-            "../models/TestChassis/ArmCollision.dae"
-          ]
-        }
-        physics Physics {
-          mass 1
-          centerOfMass [
-            0 0 0
-          ]
-          inertiaMatrix [
-            1 1 1
-            0 0 0
-          ]
-        }
-        linearVelocity 0.00694832765530534 0.00033457400310504587 -0.00015372515138868068
-        angularVelocity -0.03441612775987132 0.010833975336705994 -0.002819692185395125
-      }
-    }
-    CadShape {
-      url [
-        "../models/TestChassis/Swerve.dae"
-      ]
-    }
-  ]
-  boundingObject Mesh {
-    url [
-      "../models/TestChassis/SwerveCollision.dae"
-    ]
-  }
-  physics Physics {
-    density -1
-    mass 35.1919816326615
-    centerOfMass [
-      -0.0020359384354535943 -0.0018624089868159422 0.0014550425491521848
-    ]
-    inertiaMatrix [
-      2.741428295547528 2.745038237722077 5.3887854942871005
-      0.0024556527005217305 -0.06067431700614666 -0.05070675039563732
-    ]
-  }
-  controller "nt_robot_controller"
-  controllerArgs [
-    "{\"type\": \"motor\", \"value\": {\"name\": \"arm_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 60.0, \"count\": 2, \"mechanically_inverted\": false}}"
-  ]
-  linearVelocity 0.0060083744066749285 0.0002280228338303735 0.0002459919579004001
-  angularVelocity -0.0034863822354266544 0.09249285795987652 -5.057102493582349e-06
-}
 RectangleArena {
   floorSize 10 10
+}
+SampleRobot {
+  hidden position_0_0 -873.3839824811599
+  hidden linearVelocity_0 0.00013360285534942478 0.0003030384801930762 0.0004870948267591414
+  hidden angularVelocity_0 -0.023697320903631656 0.0024023930620983083 -0.005166951840442965
+  hidden rotation_4 0 1 0 6.261960523982175
+  hidden linearVelocity_4 0.000332585819803477 6.0052277186458675e-05 -0.001202262906635858
+  hidden angularVelocity_4 -0.004095847875218964 0.009108075297836866 -0.0012387873560823664
+  translation -5.041746724329894 -0.1171306408973265 0.14310959192099057
+  rotation -0.5828530647226445 -0.8104884945507104 -0.058229761671706994 -2.9796118238519473
 }

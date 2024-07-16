@@ -21,7 +21,6 @@ int main(int argc, char **argv) {
 		  j = nlohmann::json::parse(argv[i]);
 		  if (j.at("type") == "motor") {
 			  NTMotor::Config conf = j.at("value").template get<NTMotor::Config>();
-			  std::cout << conf.GearRatio << std::endl;
 			  motors.emplace_back(robot, conf);
 		  }
 	  }
