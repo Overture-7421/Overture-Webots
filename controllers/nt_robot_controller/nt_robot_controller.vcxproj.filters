@@ -44,10 +44,18 @@
     <ClCompile Include="NTMotor.cpp">
       <Filter>nt_robot_controller</Filter>
     </ClCompile>
+    <ClCompile Include="NTWorldTelemetry.cpp">
+      <Filter>nt_robot_controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="nt_robot_controller">
       <UniqueIdentifier>{4da1a4ee-faf7-4bfd-9876-820b7f3a2d88}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NTWorldTelemetry.h">
+      <Filter>nt_robot_controller</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

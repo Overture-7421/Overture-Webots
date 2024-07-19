@@ -34,12 +34,12 @@ NTMotor::NTMotor(Robot* robot, const NTMotor::Config& config) {
     motorModel = motorModel.WithReduction(gear_ratio);
 
     ntInst = nt::NetworkTableInstance::GetDefault();
-    ntInst.SetServer("localhost");
-    std::stringstream  ntIdentity;
-    ntIdentity << "nt_motor_plugin_" << modelName << "_" << config.Name;
-    ntInst.StartClient4(ntIdentity.str());
     std::stringstream jointName;
-    jointName << config.Name << "_" << config.NtSuffix;
+    jointName << config.Name;
+
+    if (!config.NtSuffix.empty()) {
+        jointName << "_" << config.NtSuffix;
+    }
 
     const auto ntable = ntInst.GetTable(robot->getName())->GetSubTable("motors")->GetSubTable(jointName.str());
 
@@ -101,8 +101,6 @@ void NTMotor::Update() {
 
     torqueAppliedEntry.Set(torqueToApply);
     currentEntry.Set(current.value());
-
-    ntInst.Flush();
 }
 
 void to_json(nlohmann::json& j, const NTMotor::Config& c) {

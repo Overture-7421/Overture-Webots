@@ -159,6 +159,10 @@
     <ClCompile Include="NTMotor.cpp" />
     <ClCompile Include="NTMotor.h" />
     <ClCompile Include="nt_robot_controller.cpp" />
+    <ClCompile Include="NTWorldTelemetry.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NTWorldTelemetry.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
