@@ -30,6 +30,18 @@ nativeUtils {
 model {
     components {
         WebotsLibrary(NativeLibrarySpec) {
+            binaries.all {
+                def webotsLibraryDir = "${webotsHome}/lib/controller"
+                def targetPlatform = targetPlatform.name.toLowerCase()
+                if(targetPlatform.contains('windows')){
+                    cppCompiler.args "/wd4090", "/wd4723"
+                    linker.args "/LIBPATH:${webotsLibraryDir}", 'controller.lib'
+                }else{
+                    cppCompiler.args "-Wno-ignored-qualifiers"
+                    linker.args "-L${webotsLibraryDir}", '-lController', '-lCppController'
+                }
+            }
+
             sources {
                 cpp {
                     source {
@@ -42,23 +54,22 @@ model {
                     }
                 }
             }
-
-            binaries.all {
-                    def webotsLibraryDir = "${webotsHome}/lib/controller"
-                    def targetPlatform = targetPlatform.name.toLowerCase()
-
-                    if(targetPlatform.contains('windows')){
-                        linker.args "/LIBPATH:${webotsLibraryDir}", 'Controller.lib'
-                    }else{
-                        linker.args "-L${webotsLibraryDir}", '-lController', '-lCppController'
-                    }
-            }
         }
 
         NtRobotController(NativeExecutableSpec) {
             binaries.all {
                 cppCompiler.define('_USE_MATH_DEFINES')
-                lib library: 'WebotsLibrary', linkage: 'shared'
+                lib library: 'WebotsLibrary', linkage: 'static'
+
+                def webotsLibraryDir = "${webotsHome}/lib/controller"
+                def targetPlatform = targetPlatform.name.toLowerCase()
+                if(targetPlatform.contains('windows')){
+                    cppCompiler.args "/wd4090", "/wd4723"
+                    linker.args "/LIBPATH:${webotsLibraryDir}", 'controller.lib'
+                }else{
+                    cppCompiler.args "-Wno-ignored-qualifiers"
+                    linker.args "-L${webotsLibraryDir}", '-lController', '-lCppController'
+                }
             }
 
             sources.cpp {
@@ -71,7 +82,7 @@ model {
                 }
             }
 
-            nativeUtils.useRequiredLibrary(it, 'wpilib_shared')
+            nativeUtils.useRequiredLibrary(it, 'wpilib_static')
         }
     }
 }

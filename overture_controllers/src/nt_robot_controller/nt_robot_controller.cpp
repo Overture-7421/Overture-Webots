@@ -1,8 +1,8 @@
 #include <webots/Robot.hpp>
 #include <networktables/NetworkTableInstance.h>
 #include <nlohmann/json.hpp>
-#include "NTMotor.h"
-#include "NTWorldTelemetry.h"
+#include "NTMotor/NTMotor.h"
+#include "NTWorldTelemetry/NTWorldTelemetry.h"
 
 using namespace webots;
 
