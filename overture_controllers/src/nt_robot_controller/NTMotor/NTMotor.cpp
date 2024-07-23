@@ -59,7 +59,7 @@ NTMotor::NTMotor(Robot* robot, const NTMotor::Config& config) {
     posSensor = motor->getPositionSensor();
 
     if (posSensor == nullptr) {
-        throw std::exception("Didnt get a position sensor");
+        throw std::runtime_error("Didnt get a position sensor");
     }
     posSensor->enable(robot->getBasicTimeStep() / 2.0);
 }

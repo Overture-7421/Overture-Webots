@@ -10,7 +10,8 @@ repositories {
     mavenCentral()
 }
 
-def webotsHome = System.env.WEBOTS_HOME
+//def webotsHome = System.env.WEBOTS_HOME
+def webotsHome = "/Applications/Webots.app/Contents/"
 
 
 wpilibRepositories.addAllReleaseRepositories(project)
@@ -37,7 +38,7 @@ model {
                     cppCompiler.args "/wd4090", "/wd4723"
                     linker.args "/LIBPATH:${webotsLibraryDir}", 'controller.lib'
                 }else{
-                    cppCompiler.args "-Wno-ignored-qualifiers"
+                    cppCompiler.args "-Wno-error=ignored-qualifiers", "-Wno-error=array-parameter"
                     linker.args "-L${webotsLibraryDir}", '-lController', '-lCppController'
                 }
             }
@@ -67,7 +68,7 @@ model {
                     cppCompiler.args "/wd4090", "/wd4723"
                     linker.args "/LIBPATH:${webotsLibraryDir}", 'controller.lib'
                 }else{
-                    cppCompiler.args "-Wno-ignored-qualifiers"
+                    cppCompiler.args "-Wno-error"
                     linker.args "-L${webotsLibraryDir}", '-lController', '-lCppController'
                 }
             }
