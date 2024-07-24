@@ -1,13 +1,16 @@
 #VRML_SIM R2023b utf8
 # Describe the functionality of your PROTO here.
-
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 
 PROTO SampleRobot [
   field SFVec3f translation 0 0 0
   field SFRotation rotation 0 0 1 0
   field SFString name "Sample Robot"
   field SFString controller "nt_robot_controller"
-  field MFString controllerArgs ["{\"type\": \"motor\", \"value\": {\"name\": \"arm_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 80.0, \"count\": 2, \"mechanically_inverted\": false}}"] 
+  field MFString controllerArgs [
+                              "{\"type\": \"motor\", \"value\": {\"name\": \"arm_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 80.0, \"count\": 2, \"mechanically_inverted\": false}}",
+                              "{\"type\": \"cancoder\", \"value\": {\"name\": \"arm_cancoder\", \"inverted\": false}}"
+                              ] 
   field SFString window "<generic>"
   field SFBool   supervisor FALSE
   field SFBool   synchronization TRUE
