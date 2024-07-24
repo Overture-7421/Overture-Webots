@@ -86,7 +86,7 @@ PROTO SampleRobot [
           }
           physics Physics {
             density -1
-            mass 12.0
+            mass 2.0
             centerOfMass [
               1.5 0.0 0.05
             ]
@@ -109,7 +109,7 @@ PROTO SampleRobot [
     }
     physics Physics {
       density -1
-      mass 14.40973585
+      mass 15
       centerOfMass [
         0.0 0.0 0.0
       ]
