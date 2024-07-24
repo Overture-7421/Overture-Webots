@@ -3,15 +3,15 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
-EXTERNPROTO "../protos/SampleRobot.proto"
+EXTERNPROTO "../protos/SwerveDrive.proto"
 
 WorldInfo {
   basicTimeStep 16
   optimalThreadCount 4
 }
 Viewpoint {
-  orientation 0.2500690620303921 0.3232683721816203 -0.9126680797323227 1.3772950137820805
-  position -1.5301669046705366 3.9960729372618715 2.3817258840611015
+  orientation 0.27862799797003635 0.34681269809672294 -0.8955933179664086 1.4365145843197404
+  position -2.8583387011539076 9.304543931228109 6.078735140595614
 }
 TexturedBackground {
 }
@@ -20,14 +20,5 @@ TexturedBackgroundLight {
 RectangleArena {
   floorSize 10 10
 }
-SampleRobot {
-  hidden position_0_0 0.005891118313957566
-  hidden linearVelocity_0 -6.451484497617173e-08 -1.5155488030383734e-09 5.121602758129439e-07
-  hidden angularVelocity_0 3.9329816914871124e-08 -4.861990877400149e-06 -4.395062869431829e-09
-  hidden translation_4 0 0 0
-  hidden rotation_4 0 0.9999999999999999 0 0.005891118313949904
-  hidden linearVelocity_4 1.8087751396748498e-08 -6.426598950929195e-09 -2.603835817414345e-06
-  hidden angularVelocity_4 4.0644695108718263e-08 2.090587865824727e-06 -2.156530748739753e-09
-  translation -0.5313248336034303 -0.00015160671987055508 0.04886795688170617
-  rotation 0.8636759846622483 0.2385530909205677 -0.44402276555368114 0.00036763233524715204
+SwerveDrive {
 }

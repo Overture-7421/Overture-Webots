@@ -1,0 +1,250 @@
+#VRML_SIM R2023b utf8
+# Describe the functionality of your PROTO here.
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+
+PROTO SwerveDrive [
+  field SFVec3f translation 0 0 0
+  field SFRotation rotation 0 0 1 0
+  field SFString name "Sample Robot"
+  field SFString controller "nt_robot_controller"
+  field MFString controllerArgs [
+    "{\"type\": \"motor\", \"value\": {\"name\": \"front_right\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"front_left\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"back_right\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"back_left\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_right_cancoder\", \"inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_left_cancoder\", \"inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_right_cancoder\", \"inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_left_cancoder\", \"inverted\": false}}"
+  ]
+  field SFString window "<generic>"
+  field SFBool   supervisor FALSE
+  field SFBool   synchronization TRUE
+  field SFBool   selfCollision FALSE
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    controller IS controller
+    children [
+      Accelerometer {
+      }
+      Gyro {
+      }
+      InertialUnit {
+      }
+      DEF CHASSIS_SHAPES Pose {
+        translation 0.0 0.0 0.0
+        rotation 0.0 0.0 0.0 0.0
+        children [
+          DEF CHASSIS Shape {
+            appearance DEF METAL_PART BrushedAluminium {
+              textureTransform TextureTransform {
+                scale 20 20
+              }
+            }
+            geometry Mesh {
+              url "../models/TestChassis/Swerve.dae"
+            }
+          }
+        ]
+      }
+      
+      #FRONT RIGHT Module
+      DEF FRONT_RIGHT_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0.25 -0.25 0.0
+          axis 0 0 1
+          staticFriction 1.0
+          dampingConstant 0.1
+        }
+        device [
+          PositionSensor {
+            name "front_right_cancoder"
+          }
+          RotationalMotor {
+            name "front_right"
+            maxTorque 999999
+          }
+        ]
+        endPoint Solid {
+          translation 0.25 -0.25 0.0
+          children [
+            Shape {
+              geometry Box {
+                size .1 .1 0.1
+              }
+            }
+          ]
+          boundingObject Group {
+            children [
+              Pose {
+                translation 0.25 -0.25 0.0
+                rotation 0.0 0.0 0.0 0.0
+                children [
+                  Box {
+                    size .1 .1 0.1
+                  }
+                ]
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 2.0
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+
+      #FRONT LEFT Module
+      DEF FRONT_LEFT_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0.25 0.25 0.0
+          axis 0 0 1
+          staticFriction 1.0
+          dampingConstant 0.1
+        }
+        device [
+          PositionSensor {
+            name "front_left_cancoder"
+          }
+          RotationalMotor {
+            name "front_left"
+            maxTorque 999999
+          }
+        ]
+        endPoint Solid {
+          translation 0.25 0.25 0.0
+          children [
+            Shape {
+              geometry Box {
+                size .1 .1 0.1
+              }
+            }
+          ]
+          boundingObject Group {
+            children [
+              Pose {
+                translation 0.25 0.25 0.0
+                rotation 0.0 0.0 0.0 0.0
+                children [
+                  Box {
+                    size .1 .1 0.1
+                  }
+                ]
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 2.0
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+
+      #BACK RIGHT Module
+      DEF BACK_RIGHT_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor -0.25 -0.25 0.0
+          axis 0 0 1
+          staticFriction 1.0
+          dampingConstant 0.1
+        }
+        device [
+          PositionSensor {
+            name "back_right_cancoder"
+          }
+          RotationalMotor {
+            name "back_right"
+            maxTorque 999999
+          }
+        ]
+        endPoint Solid {
+          translation -0.25 -0.25 0.0
+          children [
+            Shape {
+              geometry Box {
+                size .1 .1 0.1
+              }
+            }
+          ]
+          boundingObject Group {
+            children [
+              Pose {
+                translation -0.25 -0.25 0.0
+                rotation 0.0 0.0 0.0 0.0
+                children [
+                  Box {
+                    size .1 .1 0.1
+                  }
+                ]
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 2.0
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+
+      #BACK LEFT Module
+      DEF BACK_LEFT_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor -0.25 0.25 0.0
+          axis 0 0 1
+          staticFriction 1.0
+          dampingConstant 0.1
+        }
+        device [
+          PositionSensor {
+            name "back_left_cancoder"
+          }
+          RotationalMotor {
+            name "back_left"
+            maxTorque 999999
+          }
+        ]
+        endPoint Solid {
+          translation -0.25 0.25 0.0
+          children [
+            Shape {
+              geometry Box {
+                size .1 .1 0.1
+              }
+            }
+          ]
+          boundingObject Group {
+            children [
+              Pose {
+                translation -0.25 0.25 0.0
+                rotation 0.0 0.0 0.0 0.0
+                children [
+                  Box {
+                    size .1 .1 0.1
+                  }
+                ]
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 2.0
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+    ]
+    controller IS controller
+    controllerArgs IS controllerArgs
+    window IS window
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    supervisor IS supervisor
+  }
+}
