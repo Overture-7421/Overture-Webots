@@ -58,416 +58,317 @@ PROTO SwerveDrive [
           }
         ]
       }
-      
+
      
-      #FRONT RIGHT Module
+     
+#FRONT RIGHT Module
       
-      DEF FRONT_RIGHT_JOINT HingeJoint {
+DEF FRONT_RIGHT_JOINT HingeJoint {
+  jointParameters HingeJointParameters {
+    anchor 0.2597 -0.2597 -0.018
+    axis 0 0 1
+    staticFriction 1.0
+    dampingConstant 0.1
+  }
+  device [
+    PositionSensor {
+      name "front_right_cancoder"
+    }
+    RotationalMotor {
+      name "front_right"
+      maxTorque 999999
+    }
+  ]
+  endPoint Solid {
+    name "Front Right Solid"
+    translation 0.2597 -0.2597 -0.018
+    children [
+      Shape {
+        geometry Box {
+          size 0.08 0.08 0.1
+        }
+      }
+      DEF FRONT_RIGHT_DRIVE_JOINT HingeJoint {
         jointParameters HingeJointParameters {
-          anchor 0.2597 -0.2597 -0.018
-          axis 0 0 1
+          anchor 0.0 -0.0 -0.05
+          axis 0 1 0
           staticFriction 1.0
           dampingConstant 0.1
         }
         device [
           PositionSensor {
-            name "front_right_cancoder"
+            name "front_right_drive_cancoder"
           }
           RotationalMotor {
-            name "front_right"
+            name "front_right_drive"
             maxTorque 999999
           }
         ]
         endPoint Solid {
-          translation 0.2597 -0.2597 -0.018
+          translation 0.0 -0.0 -0.05
+          rotation 1.0 0.0 0.0 1.57
           children [
             Shape {
-              geometry Box {
-                size .08 .08 0.1
+              geometry Cylinder {
+                height 0.03732276
+                radius 0.035
               }
             }
-            
-            DEF FRONT_RIGHT_DRIVE_JOINT HingeJoint{
-              jointParameters HingeJointParameters {
-                anchor 0.0 -0.0 -0.05
-                axis 0 0 1
-                staticFriction 1.0
-                dampingConstant 0.1
-              }
-              device [
-                PositionSensor {
-                  name "front_right_cancoder"
-                }
-                RotationalMotor {
-                  name "front_right_drive"
-                  maxTorque 999999
-                }
-              ]
-              endPoint Solid {
-                translation 0.0 -0.0 -0.05
-                rotation 1.0 0.0 0.0 1.57
-                children [
-                  Shape {
-                    geometry Cylinder {
-                    height 0.03732276
-                    radius 0.035 
-                    #
-                    subdivision 12
-                    #
-                    }
-                  }
-                ]
-              }                            
-              }
-              ] 
-              boundingObject Group {
-                children [
-                  Pose {
-                    translation 0.2597 -0.2597 -0.018
-                    rotation 0.0 0.0 0.0 0.0
-                    children [
-                      Box {
-                        size .1 .1 0.1
-                      }
-                    ]
-                  }
-                  boundingObject Group {
-                    children [
-                      Pose {
-                        translation 0.0 -0.0 -0.05
-                        rotation 1.0 0.0 0.0 1.57
-                        children [
-                        Shape {
-                          geometry Cylinder {
-                          height 0.03732276
-                          radius 0.035 
-                          }
-                        }
-                          physics Physics {
-                            density -1
-                            mass 0.5
-                            centerOfMass [0.0 0.0 0.0]
-                          }                         
-                        ]
-                      }
-                    ]
-                  }  
-                ]
-              }
-              
-              physics Physics {
-                density -1
-                mass 2.0
-                centerOfMass [0.0 0.0 0.0]
-          } 
-          } 
-          } 
-          
-          
-          
-      #FRONT LEFT Module
-      
-      DEF FRONT_LEFT_JOINT HingeJoint {
-        jointParameters HingeJointParameters {
-          anchor 0.2597 0.2597 -0.018
-          axis 0 0 1
-          staticFriction 1.0
-          dampingConstant 0.1
+          ]
+          boundingObject Cylinder {
+            height 0.03732276
+            radius 0.035
+          }
+          physics Physics {
+            density -1
+            mass 0.5
+            centerOfMass [0.0 0.0 0.0]
+          }
         }
-        device [
-          PositionSensor {
-            name "front_left_cancoder"
-          }
-          RotationalMotor {
-            name "front_left"
-            maxTorque 999999
-          }
-        ]
-        endPoint Solid {
-          translation 0.2597 0.2597 -0.018
-          children [
-            Shape {
-              geometry Box {
-                size .08 .08 0.1
-              }
-            }
-            
-            DEF FRONT_LEFT_DRIVE_JOINT HingeJoint{
-              jointParameters HingeJointParameters {
-                anchor 0.0 0.0 -0.05
-                axis 0 0 1
-                staticFriction 1.0
-                dampingConstant 0.1
-              }
-              device [
-                PositionSensor {
-                  name "front_left_cancoder"
-                }
-                RotationalMotor {
-                  name "front_left_drive"
-                  maxTorque 999999
-                }
-              ]
-              endPoint Solid {
-                translation 0.0 0.0 -0.05
-                rotation 1.0 0.0 0.0 1.57
-                children [
-                  Shape {
-                    geometry Cylinder {
-                    height 0.03732276
-                    radius 0.035 
-                    }
-                  }
-                ]
-              }                            
-              }
-              ] 
-              boundingObject Group {
-                children [
-                  Pose {
-                    translation 0.2597 0.2597 -0.018
-                    rotation 0.0 0.0 0.0 0.0
-                    children [
-                      Box {
-                        size .1 .1 0.1
-                      }
-                    ]
-                  }
-                  boundingObject Group {
-                    children [
-                      Pose {
-                        translation 0.0 0.0 -0.05
-                        rotation 1.0 0.0 0.0 1.57
-                        children [
-                        Shape {
-                          geometry Cylinder {
-                          height 0.03732276
-                          radius 0.035 
-                          }
-                        }
-                          physics Physics {
-                            density -1
-                            mass 0.5
-                            centerOfMass [0.0 0.0 0.0]
-                          }                         
-                        ]
-                      }
-                    ]
-                  }  
-                ]
-              }
-              
-              physics Physics {
-                density -1
-                mass 2.0
-                centerOfMass [0.0 0.0 0.0]
-          } 
-          } 
-          } 
-
-
-
-      #BACK RIGHT Module
-      
-      DEF BACK_RIGHT_JOINT HingeJoint {
-        jointParameters HingeJointParameters {
-          anchor -0.2597 -0.2597 -0.018
-          axis 0 0 1
-          staticFriction 1.0
-          dampingConstant 0.1
-        }
-        device [
-          PositionSensor {
-            name "back_right_cancoder"
-          }
-          RotationalMotor {
-            name "back_right"
-            maxTorque 999999
-          }
-        ]
-        endPoint Solid {
-          translation -0.2597 -0.2597 -0.018
-          children [
-            Shape {
-              geometry Box {
-                size .08 .08 0.1
-              }
-            }
-            
-            DEF BACK_RIGHT_DRIVE_JOINT HingeJoint{
-              jointParameters HingeJointParameters {
-                anchor 0.0 0.0 -0.05
-                axis 0 0 1
-                staticFriction 1.0
-                dampingConstant 0.1
-              }
-              device [
-                PositionSensor {
-                  name "back_right_cancoder"
-                }
-                RotationalMotor {
-                  name "back_right_drive"
-                  maxTorque 999999
-                }
-              ]
-              endPoint Solid {
-                translation 0.0 0.0 -0.05
-                rotation 1.0 0.0 0.0 1.57
-                children [
-                  Shape {
-                    geometry Cylinder {
-                    height 0.03732276
-                    radius 0.035 
-                    }
-                  }
-                ]
-              }                            
-              }
-              ] 
-              boundingObject Group {
-                children [
-                  Pose {
-                    translation -0.2597 -0.2597 -0.018
-                    rotation 0.0 0.0 0.0 0.0
-                    children [
-                      Box {
-                        size .1 .1 0.1
-                      }
-                    ]
-                  }
-                  boundingObject Group {
-                    children [
-                      Pose {
-                        translation 0.0 0.0 -0.05
-                        rotation 1.0 0.0 0.0 1.57
-                        children [
-                        Shape {
-                          geometry Cylinder {
-                          height 0.03732276
-                          radius 0.035 
-                          }
-                        }
-                          physics Physics {
-                            density -1
-                            mass 0.5
-                            centerOfMass [0.0 0.0 0.0]
-                          }                         
-                        ]
-                      }
-                    ]
-                  }  
-                ]
-              }
-              
-              physics Physics {
-                density -1
-                mass 2.0
-                centerOfMass [0.0 0.0 0.0]
-          } 
-          } 
-          } 
-
-      #BACK LEFT Module
-      
-      DEF BACK_LEFT_JOINT HingeJoint {
-        jointParameters HingeJointParameters {
-          anchor -0.2597 0.2597 -0.018
-          axis 0 0 1
-          staticFriction 1.0
-          dampingConstant 0.1
-        }
-        device [
-          PositionSensor {
-            name "back_left_cancoder"
-          }
-          RotationalMotor {
-            name "back_left"
-            maxTorque 999999
-          }
-        ]
-        endPoint Solid {
-          translation -0.2597 0.2597 -0.018
-          children [
-            Shape {
-              geometry Box {
-                size .08 .08 0.1
-              }
-            }
-            
-            DEF BACK_LEFT_DRIVE_JOINT HingeJoint{
-              jointParameters HingeJointParameters {
-                anchor 0.0 0.0 -0.05
-                axis 0 0 1
-                staticFriction 1.0
-                dampingConstant 0.1
-              }
-              device [
-                PositionSensor {
-                  name "back_left_cancoder"
-                }
-                RotationalMotor {
-                  name "back_left_drive"
-                  maxTorque 999999
-                }
-              ]
-              endPoint Solid {
-                translation 0.0 0.0 -0.05
-                rotation 1.0 0.0 0.0 1.57
-                children [
-                  Shape {
-                    geometry Cylinder {
-                    height 0.03732276
-                    radius 0.035 
-                    }
-                  }
-                ]
-              }                            
-              }
-              ] 
-              boundingObject Group {
-                children [
-                  Pose {
-                    translation -0.2597 0.2597 -0.018
-                    rotation 0.0 0.0 0.0 0.0
-                    children [
-                      Box {
-                        size .1 .1 0.1
-                      }
-                    ]
-                  }
-                  boundingObject Group {
-                    children [
-                      Pose {
-                        translation 0.0 0.0 -0.05
-                        rotation 1.0 0.0 0.0 1.57
-                        children [
-                        Shape {
-                          geometry Cylinder {
-                          height 0.03732276
-                          radius 0.035 
-                          }
-                        }
-                          physics Physics {
-                            density -1
-                            mass 0.5
-                            centerOfMass [0.0 0.0 0.0]
-                          }                         
-                        ]
-                      }
-                    ]
-                  }  
-                ]
-              }
-              
-              physics Physics {
-                density -1
-                mass 2.0
-                centerOfMass [0.0 0.0 0.0]
-          } 
-          } 
-          } 
-
+      }
     ]
+    boundingObject Box {
+      size 0.08 0.08 0.1
+    }
+    physics Physics {
+      density -1
+      mass 2.0
+      centerOfMass [0.0 0.0 0.0]
+    }
+  }
+}
+
+          
+          
+#FRONT LEFT Module
+DEF FRONT_LEFT_JOINT HingeJoint {
+  jointParameters HingeJointParameters {
+    anchor 0.2597 0.2597 -0.018
+    axis 0 0 1
+    staticFriction 1.0
+    dampingConstant 0.1
+  }
+  device [
+    PositionSensor {
+      name "front_left_cancoder"
+    }
+    RotationalMotor {
+      name "front_left"
+      maxTorque 999999
+    }
+  ]
+  endPoint Solid {
+    name "Front Left Solid"
+    translation 0.2597 0.2597 -0.018
+    children [
+      Shape {
+        geometry Box {
+          size 0.08 0.08 0.1
+        }
+      }
+      DEF FRONT_RIGHT_DRIVE_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0.0 0.0 -0.05
+          axis 0 1 0
+          staticFriction 1.0
+          dampingConstant 0.1
+        }
+        device [
+          PositionSensor {
+            name "front_left_drive_cancoder"
+          }
+          RotationalMotor {
+            name "front_left_drive"
+            maxTorque 999999
+          }
+        ]
+        endPoint Solid {
+          translation 0.0 0.0 -0.05
+          rotation 1.0 0.0 0.0 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.03732276
+                radius 0.035
+              }
+            }
+          ]
+          boundingObject Cylinder {
+            height 0.03732276
+            radius 0.035
+          }
+          physics Physics {
+            density -1
+            mass 0.5
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+    ]
+    boundingObject Box {
+      size 0.08 0.08 0.1
+    }
+    physics Physics {
+      density -1
+      mass 2.0
+      centerOfMass [0.0 0.0 0.0]
+    }
+  }
+}
+
+#BACK RIGHT Module
+DEF BACK_RIGHT_JOINT HingeJoint {
+  jointParameters HingeJointParameters {
+    anchor -0.2597 -0.2597 -0.018
+    axis 0 0 1
+    staticFriction 1.0
+    dampingConstant 0.1
+  }
+  device [
+    PositionSensor {
+      name "back_right_cancoder"
+    }
+    RotationalMotor {
+      name "back_right"
+      maxTorque 999999
+    }
+  ]
+  endPoint Solid {
+    name "Back Right Solid"
+    translation -0.2597 -0.2597 -0.018
+    children [
+      Shape {
+        geometry Box {
+          size 0.08 0.08 0.1
+        }
+      }
+      DEF BACK_RIGHT_DRIVE_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0.0 0.0 -0.05
+          axis 0 1 0
+          staticFriction 1.0
+          dampingConstant 0.1
+        }
+        device [
+          PositionSensor {
+            name "back_right_drive_cancoder"
+          }
+          RotationalMotor {
+            name "back_right_drive"
+            maxTorque 999999
+          }
+        ]
+        endPoint Solid {
+          translation 0.0 0.0 -0.05
+          rotation 1.0 0.0 0.0 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.03732276
+                radius 0.035
+              }
+            }
+          ]
+          boundingObject Cylinder {
+            height 0.03732276
+            radius 0.035
+          }
+          physics Physics {
+            density -1
+            mass 0.5
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+    ]
+    boundingObject Box {
+      size 0.08 0.08 0.1
+    }
+    physics Physics {
+      density -1
+      mass 2.0
+      centerOfMass [0.0 0.0 0.0]
+    }
+  }
+}
+
+#BACK LEFT Module
+DEF BACK_LEFT_JOINT HingeJoint {
+  jointParameters HingeJointParameters {
+    anchor -0.2597 0.2597 -0.018
+    axis 0 0 1
+    staticFriction 1.0
+    dampingConstant 0.1
+  }
+  device [
+    PositionSensor {
+      name "back_left_cancoder"
+    }
+    RotationalMotor {
+      name "back_left"
+      maxTorque 999999
+    }
+  ]
+  endPoint Solid {
+    name "Back Left Solid"
+    translation -0.2597 0.2597 -0.018
+    children [
+      Shape {
+        geometry Box {
+          size 0.08 0.08 0.1
+        }
+      }
+      DEF FRONT_RIGHT_DRIVE_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0.0 0.0 -0.05
+          axis 0 1 0
+          staticFriction 1.0
+          dampingConstant 0.1
+        }
+        device [
+          PositionSensor {
+            name "back_left_drive_cancoder"
+          }
+          RotationalMotor {
+            name "back_left_drive"
+            maxTorque 999999
+          }
+        ]
+        endPoint Solid {
+          translation 0.0 0.0 -0.05
+          rotation 1.0 0.0 0.0 1.57
+          children [
+            Shape {
+              geometry Cylinder {
+                height 0.03732276
+                radius 0.035
+              }
+            }
+          ]
+          boundingObject Cylinder {
+            height 0.03732276
+            radius 0.035
+          }
+          physics Physics {
+            density -1
+            mass 0.5
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+    ]
+    boundingObject Box {
+      size 0.08 0.08 0.1
+    }
+    physics Physics {
+      density -1
+      mass 2.0
+      centerOfMass [0.0 0.0 0.0]
+    }
+  }
+}
+
+]
     
     boundingObject DEF BODY_BO Group {
       children [
