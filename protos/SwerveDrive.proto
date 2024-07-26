@@ -8,10 +8,10 @@ PROTO SwerveDrive [
   field SFString name "Sample Robot"
   field SFString controller "nt_robot_controller"
   field MFString controllerArgs [
-"{\"type\": \"motor\", \"value\": {\"name\": \"front_right\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": false}}",
-    "{\"type\": \"motor\", \"value\": {\"name\": \"front_left\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": false}}",
-    "{\"type\": \"motor\", \"value\": {\"name\": \"back_right\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": false}}",
-    "{\"type\": \"motor\", \"value\": {\"name\": \"back_left\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": false}}",
+"{\"type\": \"motor\", \"value\": {\"name\": \"front_right\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"front_left\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"back_right\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"back_left\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": true}}",
     
     "{\"type\": \"motor\", \"value\": {\"name\": \"front_right_drive\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 5.9027777, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"front_left_drive\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 5.9027777, \"count\": 1, \"mechanically_inverted\": false}}",
@@ -67,8 +67,8 @@ DEF FRONT_RIGHT_JOINT HingeJoint {
   jointParameters HingeJointParameters {
     anchor 0.2597 -0.2597 -0.018
     axis 0 0 1
-    staticFriction 1.0
-    dampingConstant 0.1
+    staticFriction 0.1
+    dampingConstant 8.0
   }
   device [
     PositionSensor {
@@ -145,8 +145,8 @@ DEF FRONT_LEFT_JOINT HingeJoint {
   jointParameters HingeJointParameters {
     anchor 0.2597 0.2597 -0.018
     axis 0 0 1
-    staticFriction 1.0
-    dampingConstant 0.1
+    staticFriction 0.1
+    dampingConstant 8.0
   }
   device [
     PositionSensor {
@@ -221,8 +221,8 @@ DEF BACK_RIGHT_JOINT HingeJoint {
   jointParameters HingeJointParameters {
     anchor -0.2597 -0.2597 -0.018
     axis 0 0 1
-    staticFriction 1.0
-    dampingConstant 0.1
+    staticFriction 0.1
+    dampingConstant 8.0
   }
   device [
     PositionSensor {
@@ -297,8 +297,8 @@ DEF BACK_LEFT_JOINT HingeJoint {
   jointParameters HingeJointParameters {
     anchor -0.2597 0.2597 -0.018
     axis 0 0 1
-    staticFriction 1.0
-    dampingConstant 0.1
+    staticFriction 0.1
+    dampingConstant 8.0
   }
   device [
     PositionSensor {
