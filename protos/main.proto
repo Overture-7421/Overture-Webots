@@ -89,5 +89,25 @@ PROTO main [
         DriveCoords 0.0 0.0 -0.05
       }
     ]
-  }
+    
+    boundingObject DEF BODY_BO Group {
+      children [
+        Pose {
+          translation 0.0 0.0 0.0
+          rotation 0.0 0.0 0.0 0.0
+          children [
+            Box {
+              size 0.8 0.67 0.1
+            }
+          ]
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 20
+      centerOfMass [
+        0.0 0.0 0.0
+      ]
+    }   }
 }
