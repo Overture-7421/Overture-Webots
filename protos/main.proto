@@ -23,7 +23,9 @@ PROTO main [
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_right_cancoder\", \"inverted\": false}}",
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_left_cancoder\", \"inverted\": false}}",
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_right_cancoder\", \"inverted\": false}}",
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_left_cancoder\", \"inverted\": false}}"
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_left_cancoder\", \"inverted\": false}}",
+
+    "{\"type\": \"imu\", \"value\": {\"name\": \"imu\"}}"
   ]
 ]
 
@@ -38,7 +40,9 @@ PROTO main [
     children [
       Accelerometer {},
       Gyro {},
-      InertialUnit {},
+      InertialUnit {
+        name "imu"
+      },
       DEF CHASSIS_SHAPES Pose {
         translation 0.0 0.0 0.0
         rotation 0.0 0.0 0.0 0.0

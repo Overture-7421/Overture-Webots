@@ -48,8 +48,8 @@ PROTO SwerveModule [
               jointParameters HingeJointParameters {
                 anchor IS DriveCoords
                 axis 0 1 0
-                staticFriction 0.1
-                dampingConstant 3
+                staticFriction 0.0
+                dampingConstant 0.2
               }
               device [
                 PositionSensor {
