@@ -9,7 +9,8 @@ PROTO SwerveModule [
   field SFString name "Default Swerve Module"
   field SFString moduleMotorRotationName "Default Rotation Motor"
   field SFString moduleMotorDriveName "Default Drive Motor"
-  field SFString moduleEncoderName "Default Encoder Name"
+  field SFString moduleEncoderRotationName "Default Rotation Encoder Name"
+  field SFString moduleEncoderDriveName "Default Drive Encoder Name"
   field SFVec3f RotationCoords 0.0 0.0 0.0
   field SFVec3f DriveCoords 0.0 0.0 0.0
 ]
@@ -28,7 +29,7 @@ PROTO SwerveModule [
         }
         device [
           PositionSensor {
-            name IS moduleEncoderName
+            name IS moduleEncoderRotationName
           }
           RotationalMotor {
             name IS moduleMotorRotationName
@@ -49,11 +50,11 @@ PROTO SwerveModule [
                 anchor IS DriveCoords
                 axis 0 1 0
                 staticFriction 0.0
-                dampingConstant 0.2
+                dampingConstant 0.25
               }
               device [
                 PositionSensor {
-                  name IS moduleEncoderName
+                  name IS moduleEncoderDriveName
                 }
                 RotationalMotor {
                   name IS moduleMotorDriveName

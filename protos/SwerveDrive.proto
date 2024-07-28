@@ -63,7 +63,8 @@ PROTO SwerveDrive [
         name "Front Right Joint"
         moduleMotorRotationName "front_right_rotation"
         moduleMotorDriveName "front_right_drive"
-        moduleEncoderName "front_right_cancoder"
+        moduleEncoderRotationName "front_right_cancoder"
+        moduleEncoderDriveName "front_right_drive_encoder"
         RotationCoords 0.2597 -0.2597 -0.018
         DriveCoords 0.0 0.0 -0.05
       },
@@ -71,7 +72,8 @@ PROTO SwerveDrive [
         name "Front Left Joint"
         moduleMotorRotationName "front_left_rotation"
         moduleMotorDriveName "front_left_drive"
-        moduleEncoderName "front_left_cancoder"
+        moduleEncoderRotationName "front_left_cancoder"
+        moduleEncoderDriveName "front_left_drive_encoder"
         RotationCoords 0.2597 0.2597 -0.018
         DriveCoords 0.0 0.0 -0.05
 
@@ -80,7 +82,8 @@ PROTO SwerveDrive [
         name "Back Right Joint"
         moduleMotorRotationName "back_right_rotation"
         moduleMotorDriveName "back_right_drive"
-        moduleEncoderName "back_right_cancoder"
+        moduleEncoderRotationName "back_right_cancoder"
+        moduleEncoderDriveName "back_right_drive_encoder"
         RotationCoords -0.2597 -0.2597 -0.018
         DriveCoords 0.0 0.0 -0.05
       },
@@ -88,7 +91,8 @@ PROTO SwerveDrive [
         name "Back Left Joint"
         moduleMotorRotationName "back_left_rotation"
         moduleMotorDriveName "back_left_drive"
-        moduleEncoderName "back_left_cancoder"
+        moduleEncoderRotationName "back_left_cancoder"
+        moduleEncoderDriveName "back_left_drive_encoder"
         RotationCoords -0.2597 0.2597 -0.018
         DriveCoords 0.0 0.0 -0.05
       }
