@@ -1,0 +1,45 @@
+#VRML_SIM R2023b utf8
+# Describe the functionality of your PROTO here.
+
+PROTO OverCamera [
+  
+  field SFVec3f cameraTranslation 0 0 0
+  field SFVec3f cameraRotation 0 0 0
+  field SFString name "Default Camera"
+  field SFString type "Default Camera Type"
+  
+  field SFString width 0.0
+  field SFString height 0.0
+  field SFString fov 0.0
+  field SFString near 0.0
+  field SFString far 0.0
+  
+  
+]
+
+{
+  Transform {
+
+    children [
+    
+    
+      DEF OverFrontCamera Camera {
+        translation IS cameraPosition
+        rotation IS cameraRotation
+        name IS name
+        type IS type
+        width IS width
+        height IS height
+        fov IS fov
+        near IS near
+        far IS far
+      }
+    ]
+  }
+}
+          
+      
+      
+      
+    
+      
