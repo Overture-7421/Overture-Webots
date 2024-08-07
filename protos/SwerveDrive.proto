@@ -2,7 +2,7 @@
 # Describe the functionality of your PROTO here.
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 EXTERNPROTO "SwerveModule.proto"
-
+EXTERNPROTO "OverCamera.proto"
 
 PROTO SwerveDrive [
   field SFVec3f translation 0 0 0
@@ -24,11 +24,15 @@ PROTO SwerveDrive [
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_left_cancoder\", \"inverted\": false}}",
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_right_cancoder\", \"inverted\": false}}",
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_left_cancoder\", \"inverted\": false}}",
+    
+    "{\"type\": \"camera\", \"value\": {\"name\": \"Frontal Camera\"}}",
+
+    
+    
 
     "{\"type\": \"imu\", \"value\": {\"name\": \"imu\"}}"
   ]
 ]
-
 {
   Robot {
     translation IS translation
@@ -95,7 +99,17 @@ PROTO SwerveDrive [
         moduleEncoderDriveName "back_left_drive_encoder"
         RotationCoords -0.2597 0.2597 -0.018
         DriveCoords 0.0 0.0 -0.05
-      }
+      },
+      
+    OverCamera {
+      cameraName "Frontal Camera"
+      cameraTranslation 0.0 0.0 0.0
+      cameraRotation 0.0 0.0 0.0 1.0
+      cameraWidth 64
+      cameraHeight 64
+      cameraNear 0.01
+      cameraFar 10.0
+    }
     ]
     
     boundingObject DEF BODY_BO Group {
@@ -117,5 +131,6 @@ PROTO SwerveDrive [
       centerOfMass [
         0.0 0.0 0.0
       ]
-    }   }
+    }
+  }
 }

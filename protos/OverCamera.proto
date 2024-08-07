@@ -2,44 +2,26 @@
 # Describe the functionality of your PROTO here.
 
 PROTO OverCamera [
-  
   field SFVec3f cameraTranslation 0 0 0
-  field SFVec3f cameraRotation 0 0 0
-  field SFString name "Default Camera"
-  field SFString type "Default Camera Type"
-  
-  field SFString width 0.0
-  field SFString height 0.0
-  field SFString fov 0.0
-  field SFString near 0.0
-  field SFString far 0.0
-  
-  
+  field SFRotation cameraRotation 0 0 0 1
+  field SFString cameraName "Default Camera"
+  field SFInt32 cameraWidth 0
+  field SFInt32 cameraHeight 0
+  field SFFloat cameraNear 0.0
+  field SFFloat cameraFar 0.0
 ]
-
 {
   Transform {
-
+    translation IS cameraTranslation
+    rotation IS cameraRotation
     children [
-    
-    
       DEF OverFrontCamera Camera {
-        translation IS cameraPosition
-        rotation IS cameraRotation
-        name IS name
-        type IS type
-        width IS width
-        height IS height
-        fov IS fov
-        near IS near
-        far IS far
+        name IS cameraName
+        width IS cameraWidth
+        height IS cameraHeight
+        near IS cameraNear
+        far IS cameraFar
       }
     ]
   }
 }
-          
-      
-      
-      
-    
-      
