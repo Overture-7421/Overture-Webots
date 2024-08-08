@@ -103,10 +103,10 @@ PROTO SwerveDrive [
       
     OverCamera {
       cameraName "Frontal Camera"
-      cameraTranslation 0.0 0.0 0.0
-      cameraRotation 0.0 0.0 0.0 1.0
-      cameraWidth 64
-      cameraHeight 64
+      cameraTranslation 0.2597 0.0 1.0
+      cameraRotation 0.0 0.0 0.0 0.0
+      cameraWidth 1920
+      cameraHeight 1080
       cameraNear 0.01
       cameraFar 10.0
     }
