@@ -25,7 +25,7 @@ PROTO SwerveDrive [
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_right_cancoder\", \"inverted\": false}}",
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_left_cancoder\", \"inverted\": false}}",
     
-    "{\"type\": \"camera\", \"value\": {\"name\": \"Frontal Camera\"}}",
+    "{\"type\": \"camera\", \"value\": {\"name\": \"Frontal Camera\", \"port\": 5900}}",
 
     
     
