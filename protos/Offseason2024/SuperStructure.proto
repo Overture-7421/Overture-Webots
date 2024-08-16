@@ -1,0 +1,113 @@
+#VRML_SIM R2023b utf8
+# Describe the functionality of your PROTO here.
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+
+PROTO SuperStructure [
+  field SFVec3f translation 0 0 0.35
+  field SFRotation rotation 0 0 1 0
+
+]
+
+{
+  Transform {
+    translation IS translation
+    rotation IS rotation
+    children [
+      DEF LOWER_ARM_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor -0.25 0 0
+          axis 0 1 0
+          staticFriction 0.1
+          dampingConstant 40.0
+          maxStop 0.558505
+          minStop -1.57
+        }
+        
+        device [
+          PositionSensor {
+            name "lower_cancoder"
+          }
+          RotationalMotor {
+            name "lower_arm"
+            maxTorque 999999
+          }
+        ]
+        
+        endPoint Solid {
+          name "Lower Arm"
+          translation 0 0 0
+          children [
+            Shape {
+              geometry Box {
+                size 0.45 0.4 0.05
+              }
+            }
+            
+            Transform {
+               translation 0.1 0 0.05
+               rotation 0 0 0 0
+               children [
+                 DEF UPPER_ARM_JOINT HingeJoint {
+                 
+                  jointParameters HingeJointParameters {
+                    anchor 0.1 0 0
+                    axis 0 -1 0
+                    staticFriction 0.1
+                    dampingConstant 40.0
+                    maxStop 0.01
+                    minStop -1.57
+                  }
+                  
+                  device [
+                    PositionSensor {
+                      name "upper_cancoder"
+                    }
+                    RotationalMotor {
+                      name "upper_arm"
+                      maxTorque 999999
+                    }
+                  ]
+                  
+                  endPoint Solid {
+                    name "Upper Arm"
+                    translation 0 0 0
+                    children [
+                      Shape {
+                        appearance Appearance {
+                          material Material {
+                            diffuseColor 1 0 0  # Red color (RGB)
+                          }
+                        }
+      
+                        geometry Box {
+                          size 0.35 0.3 0.05
+                        }
+                      }
+                    ]
+                    boundingObject Box {
+                          size 0.35 0.3 0.05
+                    }
+                    physics Physics {
+                      density -1
+                      mass 3.0
+                      centerOfMass [0.0 0.0 0.0]
+                    }
+                  }
+                }   
+               ]  
+            }  
+           
+          ]
+          boundingObject Box {
+                size 0.45 0.4 0.05
+          }
+          physics Physics {
+            density -1
+            mass 7.0
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+    ]
+  }
+}

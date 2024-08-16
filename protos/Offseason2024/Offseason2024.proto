@@ -1,0 +1,145 @@
+#VRML_SIM R2023b utf8
+# Describe the functionality of your PROTO here.
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+EXTERNPROTO "../SwerveModule.proto"
+EXTERNPROTO "../OverCamera.proto"
+EXTERNPROTO "./SuperStructure.proto"
+
+PROTO Offseason2024 [
+  field SFVec3f translation 0 0 0
+  field SFRotation rotation 0 0 1 0
+  field SFString name "Offseason 2024"
+  field SFString controller "nt_robot_controller"
+  field MFString controllerArgs [
+    "{\"type\": \"motor\", \"value\": {\"name\": \"front_right_rotation\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"front_left_rotation\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"back_right_rotation\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"back_left_rotation\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 21.4285714286, \"count\": 1, \"mechanically_inverted\": true}}",
+    
+    "{\"type\": \"motor\", \"value\": {\"name\": \"front_right_drive\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 5.9027777, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"front_left_drive\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 5.9027777, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"back_right_drive\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 5.9027777, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"back_left_drive\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 5.9027777, \"count\": 1, \"mechanically_inverted\": false}}",
+    
+    "{\"type\": \"motor\", \"value\": {\"name\": \"lower_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 172.8, \"count\": 2, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"upper_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 144.0, \"count\": 1, \"mechanically_inverted\": false}}",
+
+
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_right_cancoder\", \"inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_left_cancoder\", \"inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_right_cancoder\", \"inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_left_cancoder\", \"inverted\": false}}",
+    
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"lower_cancoder\", \"inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"upper_cancoder\", \"inverted\": false}}",
+
+    "{\"type\": \"camera\", \"value\": {\"name\": \"Frontal Camera\", \"port\": 5900}}",
+
+    
+    
+
+    "{\"type\": \"imu\", \"value\": {\"name\": \"imu\"}}"
+  ]
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    controller IS controller
+    controllerArgs IS controllerArgs
+    
+    children [
+      Accelerometer {},
+      Gyro {},
+      InertialUnit {
+        name "imu"
+      },
+      DEF CHASSIS_SHAPES Pose {
+        translation 0.0 0.0 0.0
+        rotation 0.0 0.0 0.0 0.0
+        children [
+          DEF CHASSIS Shape {
+            appearance DEF METAL_PART BrushedAluminium {
+              textureTransform TextureTransform {
+                scale 20 20
+              }
+            }
+            geometry Mesh {
+              url "../../models/TestChassis/Swerve.dae"
+            }
+          }
+        ]
+      },
+      SwerveModule {
+        name "Front Right Joint"
+        moduleMotorRotationName "front_right_rotation"
+        moduleMotorDriveName "front_right_drive"
+        moduleEncoderRotationName "front_right_cancoder"
+        moduleEncoderDriveName "front_right_drive_encoder"
+        RotationCoords 0.2597 -0.2597 -0.018
+        DriveCoords 0.0 0.0 -0.05
+      },
+      SwerveModule {
+        name "Front Left Joint"
+        moduleMotorRotationName "front_left_rotation"
+        moduleMotorDriveName "front_left_drive"
+        moduleEncoderRotationName "front_left_cancoder"
+        moduleEncoderDriveName "front_left_drive_encoder"
+        RotationCoords 0.2597 0.2597 -0.018
+        DriveCoords 0.0 0.0 -0.05
+
+      },
+      SwerveModule {
+        name "Back Right Joint"
+        moduleMotorRotationName "back_right_rotation"
+        moduleMotorDriveName "back_right_drive"
+        moduleEncoderRotationName "back_right_cancoder"
+        moduleEncoderDriveName "back_right_drive_encoder"
+        RotationCoords -0.2597 -0.2597 -0.018
+        DriveCoords 0.0 0.0 -0.05
+      },
+      SwerveModule {
+        name "Back Left Joint"
+        moduleMotorRotationName "back_left_rotation"
+        moduleMotorDriveName "back_left_drive"
+        moduleEncoderRotationName "back_left_cancoder"
+        moduleEncoderDriveName "back_left_drive_encoder"
+        RotationCoords -0.2597 0.2597 -0.018
+        DriveCoords 0.0 0.0 -0.05
+      },
+      OverCamera {
+        cameraName "Frontal Camera"
+        cameraTranslation 0.2597 0.0 1.0
+        cameraRotation 0.0 0.0 0.0 0.0
+        cameraWidth 1920
+        cameraHeight 1080
+        cameraNear 0.01
+        cameraFar 10.0
+      },
+      SuperStructure {
+      }
+    ]
+    
+    boundingObject DEF BODY_BO Group {
+      children [
+        Pose {
+          translation 0.0 0.0 0.0
+          rotation 0.0 0.0 0.0 0.0
+          children [
+            Box {
+              size 0.8 0.67 0.1
+            }
+          ]
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 20
+      centerOfMass [
+        0.0 0.0 0.0
+      ]
+    }
+  }
+}
