@@ -1,0 +1,63 @@
+#VRML_SIM R2023b utf8
+# Describe the functionality of your PROTO here.
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+
+PROTO Intake [
+  field SFVec3f translation 0.25 0 0.05
+  field SFRotation rotation 1.0 0.0 0.0 1.57
+
+]
+
+{
+  Transform {
+    translation IS translation
+    rotation IS rotation
+    children [
+      DEF LOWER_ARM_JOINT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0 0 0
+          axis 0 0 1
+          staticFriction 0.1
+          dampingConstant 2.0
+        }
+        
+        device [
+          PositionSensor {
+            name "intake_sensor"
+          }
+          RotationalMotor {
+            name "intake_motor"
+            maxTorque 999999
+          }
+        ]
+        
+        endPoint Solid {
+          name "Intake"
+          translation 0 0 0
+          children [
+            Shape {
+             appearance Appearance {
+                material Material {
+                  diffuseColor 0 0 1  # Red color (RGB)
+                }
+              }
+              geometry Cylinder {
+                height 0.4
+                radius 0.02
+              }
+            }           
+          ]
+          boundingObject Cylinder {
+                height 0.4
+                radius 0.02
+          }
+          physics Physics {
+            density -1
+            mass 7.0
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+    ]
+  }
+}
