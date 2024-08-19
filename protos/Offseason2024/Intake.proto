@@ -41,9 +41,8 @@ PROTO Intake [
                   diffuseColor 0 0 1  # Red color (RGB)
                 }
               }
-              geometry Cylinder {
-                height 0.4
-                radius 0.02
+              geometry Box {
+                size 0.04 0.04 0.4
               }
             }           
           ]
