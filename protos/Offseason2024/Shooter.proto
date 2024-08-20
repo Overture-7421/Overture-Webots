@@ -2,10 +2,9 @@
 # Describe the functionality of your PROTO here.
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 
-PROTO Intake [
-  field SFVec3f translation 0.25 0 0.05
+PROTO Shooter [
+  field SFVec3f translation -0.15 0 0.07
   field SFRotation rotation 1.0 0.0 0.0 1.57
-
 ]
 
 {
@@ -13,45 +12,44 @@ PROTO Intake [
     translation IS translation
     rotation IS rotation
     children [
-      DEF INTAKE HingeJoint {
+      DEF SHOOTER_JOINT HingeJoint {
         jointParameters HingeJointParameters {
           anchor 0 0 0
           axis 0 0 1
           staticFriction 0.1
-          dampingConstant 0.5
+          dampingConstant 2.0
         }
         
         device [
         PositionSensor {
-        }     
+        }          
         RotationalMotor {
-          name "intake_motor"
-          maxTorque 999999
+            name "shooter_motor"
+            maxTorque 999999
           }
         ]
         
         endPoint Solid {
-          name "Intake"
+          name "Shooter"
           translation 0 0 0
           children [
             Shape {
              appearance Appearance {
                 material Material {
-                  diffuseColor 0 0 1  # Red color (RGB)
+                  diffuseColor 0 1 0  # Red color (RGB)
                 }
               }
               geometry Box {
-                size 0.04 0.04 0.4
+                size 0.04 0.04 0.25
               }
             }           
           ]
-          boundingObject Cylinder {
-                height 0.4
-                radius 0.02
-          }
+          boundingObject Box {
+                size 0.04 0.04 0.25
+              }
           physics Physics {
             density -1
-            mass 7.0
+            mass 2.0
             centerOfMass [0.0 0.0 0.0]
           }
         }

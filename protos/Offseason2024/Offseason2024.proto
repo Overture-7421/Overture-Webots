@@ -5,6 +5,10 @@ EXTERNPROTO "../SwerveModule.proto"
 EXTERNPROTO "../OverCamera.proto"
 EXTERNPROTO "./SuperStructure.proto"
 EXTERNPROTO "./Intake.proto"
+EXTERNPROTO "./Shooter.proto"
+EXTERNPROTO "./Storage.proto"
+
+
 
 PROTO Offseason2024 [
   field SFVec3f translation 0 0 0
@@ -25,6 +29,8 @@ PROTO Offseason2024 [
     "{\"type\": \"motor\", \"value\": {\"name\": \"lower_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 172.8, \"count\": 2, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"upper_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 144.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"intake_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"shooter_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"storage_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
 
 
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_right_cancoder\", \"inverted\": false}}",
@@ -123,6 +129,7 @@ PROTO Offseason2024 [
       },
       Intake {
       }
+
     ]
     
     boundingObject DEF BODY_BO Group {

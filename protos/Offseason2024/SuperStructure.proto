@@ -47,6 +47,7 @@ PROTO SuperStructure [
                translation 0.1 0 0.05
                rotation 0 0 0 0
                children [
+               
                  DEF UPPER_ARM_JOINT HingeJoint {
                  
                   jointParameters HingeJointParameters {
@@ -82,6 +83,10 @@ PROTO SuperStructure [
                         geometry Box {
                           size 0.35 0.3 0.05
                         }
+                      }
+                      Shooter{
+                      }
+                      Storage{
                       }
                     ]
                     boundingObject Box {
