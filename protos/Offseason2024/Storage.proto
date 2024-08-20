@@ -17,7 +17,7 @@ PROTO Storage [
           anchor 0 0 0
           axis 0 0 1
           staticFriction 0.1
-          dampingConstant 2.0
+          dampingConstant 0.5
         }
         
         device [
@@ -49,7 +49,7 @@ PROTO Storage [
               }
           physics Physics {
             density -1
-            mass 2.0
+            mass 0.5
             centerOfMass [0.0 0.0 0.0]
           }
         }
