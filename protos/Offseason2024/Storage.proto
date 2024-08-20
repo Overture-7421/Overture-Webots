@@ -36,7 +36,7 @@ PROTO Storage [
             Shape {
              appearance Appearance {
                 material Material {
-                  diffuseColor 1 0 1  # Red color (RGB)
+                  diffuseColor 1 0.64 0  # Red color (RGB)
                 }
               }
               geometry Box {

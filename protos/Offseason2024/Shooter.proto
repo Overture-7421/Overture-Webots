@@ -36,7 +36,7 @@ PROTO Shooter [
             Shape {
              appearance Appearance {
                 material Material {
-                  diffuseColor 0 1 0  # Red color (RGB)
+                  diffuseColor 0.31 0.78 0.47  # Red color (RGB)
                 }
               }
               geometry Box {

@@ -38,9 +38,16 @@ PROTO SuperStructure [
           translation 0 0 0
           children [
             Shape {
+             appearance Appearance {
+             material Material {
+             diffuseColor 0.68 0.21 1  # Red color (RGB)
+             }
+            }             
+            
               geometry Box {
                 size 0.45 0.4 0.05
               }
+             
             }
             
             Transform {
@@ -76,7 +83,7 @@ PROTO SuperStructure [
                       Shape {
                         appearance Appearance {
                           material Material {
-                            diffuseColor 1 0 0  # Red color (RGB)
+                            diffuseColor 0.89 0.72 1  # Red color (RGB)
                           }
                         }
       
