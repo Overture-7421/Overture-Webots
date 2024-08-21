@@ -16,7 +16,7 @@ PROTO Shooter [
         jointParameters HingeJointParameters {
           anchor 0 0 0
           axis 0 0 1
-          staticFriction 0.005
+          staticFriction 0.01
           dampingConstant 0.01
         }
         
@@ -49,7 +49,7 @@ PROTO Shooter [
               }
           physics Physics {
             density -1
-            mass 2
+            mass 0.5
             centerOfMass [0.0 0.0 0.0]
           }
         }
