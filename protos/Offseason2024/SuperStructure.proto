@@ -1,6 +1,9 @@
 #VRML_SIM R2023b utf8
 # Describe the functionality of your PROTO here.
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+EXTERNPROTO "./Shooter.proto"
+EXTERNPROTO "./Storage.proto"
+
 
 PROTO SuperStructure [
   field SFVec3f translation 0 0 0.35
