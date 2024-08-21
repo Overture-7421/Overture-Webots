@@ -17,7 +17,7 @@ PROTO Shooter [
           anchor 0 0 0
           axis 0 0 1
           staticFriction 0.1
-          dampingConstant 0.1
+          dampingConstant 0.01
         }
         
         device [
