@@ -5,6 +5,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 PROTO SupportArms [
   field SFVec3f translationRight 0.05 0 0.07
   field SFRotation rotationRight 1.0 0.0 0.0 1.57
+  field SFVec3f translationLeft -0.05 0 0.07
+  field SFRotation rotationLeft 1.0 0.0 0.0 1.57  
 ]
 {
 
@@ -35,7 +37,7 @@ PROTO SupportArms [
         ]
         
         endPoint Solid {
-          name "Storage"
+          name "Support Arm Right"
           translation 0 0 0
           children [
             Shape {
@@ -59,14 +61,14 @@ PROTO SupportArms [
           }
         }
       }
-    ]
+    
     
     
   Transform {
-    translation IS translationRight
-    rotation IS rotationRight
+    translation IS translationLeft
+    rotation IS rotationLeft
     children [
-      DEF SUPPORTARMS_JOINT_RIGHT HingeJoint {
+      DEF SUPPORTARMS_JOINT_LEFT HingeJoint {
         jointParameters HingeJointParameters {
           anchor 0 0 0
           axis 0 0 1
@@ -84,7 +86,7 @@ PROTO SupportArms [
         ]
         
         endPoint Solid {
-          name "Storage"
+          name "Support Arms Left"
           translation 0 0 0
           children [
             Shape {
@@ -109,7 +111,9 @@ PROTO SupportArms [
         }
       }
     ]  
-  }    
+  }
+  
+  ]    
     
     
     
