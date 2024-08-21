@@ -10,5 +10,4 @@ orthographicViewHeight: 1
 textFiles: 4 "protos/Offseason2024/Offseason2024.proto" "protos/Offseason2024/SuperStructure.proto" "protos/Offseason2024/Storage.proto" "protos/Offseason2024/Shooter.proto" "protos/Offseason2024/SupportArms.proto"
 globalOptionalRendering: CoordinateSystem::JointAxes
 consoles: Console:All:All
-renderingDevicePerspectives: Offseason 2024(1):Frontal Camera;1;0.359896;0;0
 renderingDevicePerspectives: Offseason 2024:Frontal Camera;1;0.130729;0;0
