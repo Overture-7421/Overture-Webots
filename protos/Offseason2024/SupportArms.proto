@@ -3,16 +3,21 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 
 PROTO SupportArms [
-  field SFVec3f translation 0.05 0 0.07
-  field SFRotation rotation 1.0 0.0 0.0 1.57
+  field SFVec3f translationRight 0.05 0 0.07
+  field SFRotation rotationRight 1.0 0.0 0.0 1.57
 ]
-
 {
+
+
+
+
+
+
   Transform {
-    translation IS translation
-    rotation IS rotation
+    translation IS translationRight
+    rotation IS rotationRight
     children [
-      DEF SUPPORTARMS_JOINT HingeJoint {
+      DEF SUPPORTARMS_JOINT_RIGHT HingeJoint {
         jointParameters HingeJointParameters {
           anchor 0 0 0
           axis 0 0 1
@@ -55,5 +60,97 @@ PROTO SupportArms [
         }
       }
     ]
+    
+    
+  Transform {
+    translation IS translationRight
+    rotation IS rotationRight
+    children [
+      DEF SUPPORTARMS_JOINT_RIGHT HingeJoint {
+        jointParameters HingeJointParameters {
+          anchor 0 0 0
+          axis 0 0 1
+          staticFriction 0.1
+          dampingConstant 0.5
+        }
+        
+        device [
+        PositionSensor {
+        }     
+        RotationalMotor {
+            name "storage_motor"
+            maxTorque 999999
+          }
+        ]
+        
+        endPoint Solid {
+          name "Storage"
+          translation 0 0 0
+          children [
+            Shape {
+             appearance Appearance {
+                material Material {
+                  diffuseColor 1 0.64 0  # Red color (RGB)
+                }
+              }
+              geometry Box {
+                size 0.04 0.04 0.25
+              }
+            }           
+          ]
+          boundingObject Box {
+                size 0.04 0.04 0.25
+              }
+          physics Physics {
+            density -1
+            mass 0.5
+            centerOfMass [0.0 0.0 0.0]
+          }
+        }
+      }
+    ]  
+  }    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 }

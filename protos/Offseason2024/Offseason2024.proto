@@ -7,6 +7,8 @@ EXTERNPROTO "./SuperStructure.proto"
 EXTERNPROTO "./Intake.proto"
 EXTERNPROTO "./Shooter.proto"
 EXTERNPROTO "./Storage.proto"
+EXTERNPROTO "./SupportArms.proto"
+
 
 
 
@@ -128,8 +130,9 @@ PROTO Offseason2024 [
       SuperStructure {
       },
       Intake {
+      },
+      SupportArms{
       }
-
     ]
     
     boundingObject DEF BODY_BO Group {
