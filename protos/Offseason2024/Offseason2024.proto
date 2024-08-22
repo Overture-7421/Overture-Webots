@@ -45,8 +45,6 @@ PROTO Offseason2024 [
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"upper_cancoder\", \"inverted\": false}}",
 
     "{\"type\": \"camera\", \"value\": {\"name\": \"Frontal Camera\", \"port\": 5900}}",
-
-    
     
 
     "{\"type\": \"imu\", \"value\": {\"name\": \"imu\"}}"
