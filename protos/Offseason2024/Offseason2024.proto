@@ -31,7 +31,7 @@ PROTO Offseason2024 [
     "{\"type\": \"motor\", \"value\": {\"name\": \"lower_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 172.8, \"count\": 2, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"upper_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 144.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"intake_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
-    "{\"type\": \"motor\", \"value\": {\"name\": \"shooter_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"shooter_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 0.53571, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"storage_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"support_arm_right\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"support_arm_left\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
