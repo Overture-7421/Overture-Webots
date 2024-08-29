@@ -41,8 +41,8 @@ PROTO Offseason2024 [
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_right_cancoder\", \"inverted\": false}}",
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_left_cancoder\", \"inverted\": false}}",
     
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"lower_cancoder\", \"inverted\": false}}",
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"upper_cancoder\", \"inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"lower_cancoder\", \"inverted\": true}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"upper_cancoder\", \"inverted\": true}}",
 
     "{\"type\": \"camera\", \"value\": {\"name\": \"Frontal Camera\", \"port\": 5900}}",
     
