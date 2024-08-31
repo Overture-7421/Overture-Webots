@@ -29,20 +29,20 @@ PROTO Offseason2024 [
     "{\"type\": \"motor\", \"value\": {\"name\": \"back_left_drive\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 5.9027777, \"count\": 1, \"mechanically_inverted\": false}}",
     
     "{\"type\": \"motor\", \"value\": {\"name\": \"lower_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 172.8, \"count\": 2, \"mechanically_inverted\": false}}",
-    "{\"type\": \"motor\", \"value\": {\"name\": \"upper_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 144.0, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"upper_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 144.0, \"count\": 1, \"mechanically_inverted\": true}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"intake_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"shooter_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 0.53571, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"storage_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"support_arm_right\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"support_arm_left\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
 
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_right_cancoder\", \"inverted\": false}}",
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_left_cancoder\", \"inverted\": false}}",
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_right_cancoder\", \"inverted\": false}}",
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_left_cancoder\", \"inverted\": false}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_right_cancoder\", \"inverted\": false, \"offsetDeg\": -46.93359375}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_left_cancoder\", \"inverted\": false, \"offsetDeg\": -159.609375}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_right_cancoder\", \"inverted\": false, \"offsetDeg\": 28.4765625}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"back_left_cancoder\", \"inverted\": false, \"offsetDeg\": 19.51171875}}",
     
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"lower_cancoder\", \"inverted\": true}}",
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"upper_cancoder\", \"inverted\": true}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"lower_cancoder\", \"inverted\": false, \"offsetDeg\": 112.148438}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"upper_cancoder\", \"inverted\": true, \"offsetDeg\": 93.779297}}",
 
     "{\"type\": \"camera\", \"value\": {\"name\": \"Frontal Camera\", \"port\": 5900}}",
     

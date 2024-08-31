@@ -21,7 +21,7 @@ PROTO SuperStructure [
           anchor -0.25 0 0
           axis 0 1 0
           staticFriction 0.1
-          dampingConstant 40.0
+          dampingConstant 180.0
           maxStop 0.558505
           minStop -1.57
         }
@@ -64,7 +64,7 @@ PROTO SuperStructure [
                     anchor 0.1 0 0
                     axis 0 -1 0
                     staticFriction 0.1
-                    dampingConstant 40.0
+                    dampingConstant 180.0
                     maxStop 0.01
                     minStop -1.57
                   }
