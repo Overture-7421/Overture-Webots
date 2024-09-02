@@ -16,8 +16,10 @@ PROTO SupportArms [
     children [
       DEF SUPPORTARMS_JOINT_RIGHT HingeJoint {
         jointParameters HingeJointParameters {
-          anchor 0 0 0
-          axis 0 0 1
+          anchor -0.01 -0.01 -0.125
+          axis 0 1 0
+          maxStop 0.01
+          minStop -1.57
           staticFriction 0.1
           dampingConstant 0.5
         }
@@ -64,8 +66,10 @@ PROTO SupportArms [
     children [
       DEF SUPPORTARMS_JOINT_LEFT HingeJoint {
         jointParameters HingeJointParameters {
-          anchor 0 0 0
-          axis 0 0 1
+          anchor -0.01 -0.01 -0.125
+          axis 0 1 0
+          minStop -1.57
+          maxStop 0.01
           staticFriction 0.1
           dampingConstant 0.5
         }

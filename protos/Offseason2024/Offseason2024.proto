@@ -10,8 +10,6 @@ EXTERNPROTO "./Storage.proto"
 EXTERNPROTO "./SupportArms.proto"
 
 
-
-
 PROTO Offseason2024 [
   field SFVec3f translation 0 0 0
   field SFRotation rotation 0 0 1 0
@@ -33,8 +31,8 @@ PROTO Offseason2024 [
     "{\"type\": \"motor\", \"value\": {\"name\": \"intake_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"shooter_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 0.53571, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"storage_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
-    "{\"type\": \"motor\", \"value\": {\"name\": \"support_arm_right\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
-    "{\"type\": \"motor\", \"value\": {\"name\": \"support_arm_left\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 1.0, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"servo\", \"value\": {\"name\": \"support_arm_right\", \"suffix\": \"\", \"inverted\": false}}",
+    "{\"type\": \"servo\", \"value\": {\"name\": \"support_arm_left\", \"suffix\": \"\", \"inverted\": false}}",
 
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_right_cancoder\", \"inverted\": false}}",
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"front_left_cancoder\", \"inverted\": false}}",
@@ -81,7 +79,7 @@ PROTO Offseason2024 [
         ]
       },
       SwerveModule {
-        name "Front Right Joint"
+       name "Front Right Joint"
         moduleMotorRotationName "front_right_rotation"
         moduleMotorDriveName "front_right_drive"
         moduleEncoderRotationName "front_right_cancoder"
