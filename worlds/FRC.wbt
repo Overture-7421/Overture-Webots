@@ -3,7 +3,6 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
-EXTERNPROTO "../protos/Offseason2024/Offseason2024.proto"
 
 WorldInfo {
   basicTimeStep 16
@@ -20,29 +19,4 @@ TexturedBackgroundLight {
 RectangleArena {
   rotation 0 0 1 0.0245437
   floorSize 10 10
-}
-Offseason2024 {
-  hidden position_0_0 -1.4254234103553503e-08
-  hidden position_0_1 -1.4251343582925803e-08
-  hidden position_0_2 -1.0890851105282076e-08
-  hidden position_0_3 -1.088813172604614e-08
-  hidden position_0_4 0.5585267812808923
-  hidden position_0_5 -2.655924402191461e-15
-  hidden position_4_0 -2.7207202005260222e-05
-  hidden rotation_5 0.9999999998147946 -1.3614438228493967e-05 1.36036010009498e-05 1.5700000001852052
-  hidden position_6_0 -2.695494605114202e-05
-  hidden rotation_7 0.999999999818213 -1.3488209772381083e-05 1.3477473023937006e-05 1.570000000181787
-  hidden position_8_0 2.6822591677820953e-05
-  hidden rotation_9 0.9999999998199939 1.3421979866083747e-05 -1.3411295837300428e-05 1.570000000180006
-  hidden position_10_0 2.7074847628853427e-05
-  hidden rotation_11 0.9999999998165922 1.3548208320652991e-05 -1.3537423812770808e-05 1.5700000001834078
-  hidden translation_13 -0.03799081381233915 0 -0.1324843574617236
-  hidden rotation_13 0 1 0 0.5585267812808922
-  hidden position_13_0 0.010002800798401587
-  hidden translation_14 5.002759477387708e-06 0 -0.0010002633992490274
-  hidden rotation_14 0 -1 0 0.010002800798385565
-  hidden position_14_0 -3.427783281344641e-13
-  hidden position_14_1 -3.3922265837253415e-13
-  translation 0.000332045 -2.79354e-07 0.118126
-  rotation 0.0008393451145733205 0.9999996477364799 -5.166698380705669e-06 0.0026996082795622497
 }

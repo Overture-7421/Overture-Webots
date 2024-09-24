@@ -1,0 +1,40 @@
+#VRML_SIM R2023b utf8
+# Describe the functionality of your PROTO here.
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+
+PROTO Intake [
+  field SFVec3f translation 0.25 0 0.05
+  field SFRotation rotation 1.0 0.0 0.0 1.57
+]
+{
+  Transform {
+    translation IS translation
+    rotation IS rotation
+    children [
+      DEF INTAKE Shape {
+        appearance DEF METAL_PART BrushedAluminium {
+          textureTransform TextureTransform {
+            scale 20 20
+          }
+        }
+    geometry Mesh {
+    url "models/Intake.dae"
+    }
+      }
+      
+      Transform {
+        translation 0 0 0  # Adjust position as necessary
+        children [
+          Shape {
+            geometry Box {
+              size 1.0 1.0 1.0
+            }
+          }           
+        ]
+      }    
+    ]
+  }
+  
+  }
+  
+
