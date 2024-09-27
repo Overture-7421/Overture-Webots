@@ -1,0 +1,152 @@
+#VRML_SIM R2023b utf8
+# Describe the functionality of your PROTO here.
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+
+PROTO Elevator [
+  field SFVec3f translation 0.0 0 0.0
+  field SFRotation rotation 0.0 0.0 0.0 0.0
+]
+{
+  Transform {
+    translation IS translation
+    rotation IS rotation
+    children [
+        Shape {
+            geometry Mesh {
+                url "models/ElevatorLower.dae"
+            }
+        },
+        Transform {
+            translation 0 0 0.04
+            rotation 0 0 0 0
+            children [
+                SliderJoint {
+                    jointParameters JointParameters {
+                        staticFriction 0.1
+                        dampingConstant 45.0
+                        axis 0 0 1
+                        maxStop 0.45
+                        minStop 0.0
+                    }
+                    device [
+                        PositionSensor{
+                            name "elevator_motor_encoder"
+                        }
+                        LinearMotor{
+                            name "elevator_motor"
+                            maxForce 200
+                        }
+                    ]
+                    endPoint Solid {
+                        name "ElevatorSecondStage"
+                        translation 0 0 0
+                        children [
+                            Shape {
+                                geometry Mesh {
+                                    url "models/ElevatorMiddle.dae"
+                                }
+                            },
+                            Transform {
+                                translation 0 0 0.04
+                                rotation 0 0 0 0
+                                children [
+                                    SliderJoint {
+                                        jointParameters JointParameters {
+                                            staticFriction 0.1
+                                            dampingConstant 45.0
+                                            axis 0 0 1
+                                            maxStop 1.0
+                                            minStop 0.0
+                                        }
+                                        device [
+                                            PositionSensor{
+                                                name "elevator_middle_sensor"
+                                            }
+                                            LinearMotor{
+                                                name "elevator_motor_middle"
+                                                maxForce 200
+                                            }
+                                        ]
+                                        endPoint Solid {
+                                            name "ElevatorThirdStage"
+                                            translation 0 0 0
+                                            children [
+                                                Shape {
+                                                    geometry Mesh {
+                                                        url "models/ElevatorUpper.dae"
+                                                    }
+                                                },
+                                                Transform {
+                                                    translation 0 0 0.09
+                                                    rotation 0 0 0 0
+                                                    children [
+                                                        SliderJoint{
+                                                            jointParameters JointParameters {
+                                                                staticFriction 0.1
+                                                                dampingConstant 45.0
+                                                                axis 0 0 1
+                                                                maxStop 1.0
+                                                                minStop 0.0
+                                                            }
+                                                            device [
+                                                                PositionSensor{
+                                                                    name "elevator_upper_sensor"
+                                                                }
+                                                                LinearMotor{
+                                                                    name "elevator_motor_upper"
+                                                                    maxForce 200
+                                                                }
+                                                            ]
+                                                            endPoint Solid {
+                                                                name "ElevatorCarriage"
+                                                                translation 0 0 0
+                                                                children [
+                                                                    Shape {
+                                                                        geometry Mesh {
+                                                                            url "models/ElevatorCarriage.dae"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                                boundingObject Mesh {
+                                                                    url "models/ElevatorCarriage.dae"
+                                                                }
+                                                                physics Physics {
+                                                                    density -1
+                                                                    mass 1.0
+                                                                    centerOfMass [0.0 0.0 0.0]
+                                                                }
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                            boundingObject Mesh {
+                                                url "models/ElevatorUpper.dae"   
+                                            }
+                                            physics Physics {
+                                                density -1
+                                                mass 2.5
+                                                centerOfMass [0.0 0.0 0.0]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                        boundingObject Mesh {
+                            url "models/ElevatorMiddle.dae"
+                        }
+                        physics Physics {
+                          density -1
+                          mass 2.5
+                          centerOfMass [0.0 0.0 0.0]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+  }
+}
+  
+

@@ -3,38 +3,168 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 
 PROTO Intake [
-  field SFVec3f translation 0.25 0 0.05
-  field SFRotation rotation 1.0 0.0 0.0 1.57
+  field SFVec3f translation 0.25 0 -0.05
+  field SFRotation rotation 0.0 0.0 0.0 0.0
 ]
 {
   Transform {
     translation IS translation
     rotation IS rotation
     children [
-      DEF INTAKE Shape {
-        appearance DEF METAL_PART BrushedAluminium {
-          textureTransform TextureTransform {
-            scale 20 20
-          }
+      Shape {
+        geometry Mesh {
+          url "models/IntakeBase.dae"
         }
-    geometry Mesh {
-    url "models/Intake.dae"
-    }
-      }
-      
+      },
       Transform {
-        translation 0 0 0  # Adjust position as necessary
+        translation 0.025 0 0.39
+        rotation 0 0 0 0
         children [
-          Shape {
-            geometry Box {
-              size 1.0 1.0 1.0
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0 0 0
+              axis 0 1 0
+              staticFriction 0.1
+              dampingConstant 180.0
             }
-          }           
+            
+            device [
+              PositionSensor{
+                name "intake_cancoder"
+              }
+              RotationalMotor {
+                name "intake_arm"
+                maxTorque 99999
+              }
+            ]
+
+            endPoint Solid {
+              name "IntakeArm"
+              translation 0 0 0
+              children [
+                Shape {
+                  geometry Mesh {
+                    url "models/IntakeArms.dae"
+                  }
+                },
+                Transform {
+                  translation 0.25 0 -0.03
+                  rotation 1.0 0 0 1.5708
+                  children [
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        anchor 0 0 0
+                        axis 0 0 1
+                        staticFriction 0.1
+                        dampingConstant 0.5
+                      }
+                      
+                      device [
+                        PositionSensor {
+                          name "intake_motor_encoder"  
+                        }     
+                        RotationalMotor {
+                          name "intake_motor"
+                          maxTorque 999999
+                        }
+                      ]
+                      
+                      endPoint Solid {
+                        name "IntakeRollers1"
+                        translation 0 0 0
+                        children [
+                          Shape {
+                            appearance Appearance {
+                                material Material {
+                                  diffuseColor 1 0.35 0.67  # Red color (RGB)
+                                }
+                            }
+                            geometry Box {
+                              size 0.05 0.05 0.6
+                            }
+                          }           
+                        ]
+                        boundingObject Cylinder {
+                              height 0.6
+                              radius 0.025
+                        }
+                        physics Physics {
+                          density -1
+                          mass 0.5
+                          centerOfMass [0.0 0.0 0.0]
+                        }
+                      }
+                    }
+                  ]
+                },
+                Transform {
+                  translation 0.4 0 -0.24
+                  rotation 1.0 0 0 1.5708
+                  children [
+                    HingeJoint {
+                      jointParameters HingeJointParameters {
+                        anchor 0 0 0
+                        axis 0 0 1
+                        staticFriction 0.1
+                        dampingConstant 0.5
+                      }
+                      
+                      device [
+                        PositionSensor {
+                          name "intake_motor_lower_sensor"
+                        }
+                        RotationalMotor {
+                          name "intake_motor_lower"
+                          maxTorque 999999
+                        }
+                      ]
+                      
+                      endPoint Solid {
+                        name "IntakeRollers2"
+                        translation 0 0 0
+                        children [
+                          Shape {
+                            appearance Appearance {
+                                material Material {
+                                  diffuseColor 1 0.35 0.67  # Red color (RGB)
+                                }
+                            }
+                            geometry Box {
+                              size 0.05 0.05 0.6
+                            }
+                          }           
+                        ]
+                        boundingObject Cylinder {
+                              height 0.6
+                              radius 0.025
+                        }
+                        physics Physics {
+                          density -1
+                          mass 0.5
+                          centerOfMass [0.0 0.0 0.0]
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+              boundingObject Shape {
+                geometry Mesh {
+                  url "models/IntakeArms.dae"
+                }
+              }
+
+              physics Physics {
+                density -1
+                mass 3.0
+                centerOfMass [0.0 0.0 0.0]
+              }
+            }
+          }
         ]
-      }    
+      }
     ]
   }
-  
-  }
+}
   
 

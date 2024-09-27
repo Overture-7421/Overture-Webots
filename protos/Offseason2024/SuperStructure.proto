@@ -16,7 +16,7 @@ PROTO SuperStructure [
     translation IS translation
     rotation IS rotation
     children [
-      DEF LOWER_ARM_JOINT HingeJoint {
+       HingeJoint {
         jointParameters HingeJointParameters {
           anchor -0.25 0 0
           axis 0 1 0
@@ -58,7 +58,7 @@ PROTO SuperStructure [
                rotation 0 0 0 0
                children [
                
-                 DEF UPPER_ARM_JOINT HingeJoint {
+                 HingeJoint {
                  
                   jointParameters HingeJointParameters {
                     anchor 0.1 0 0
