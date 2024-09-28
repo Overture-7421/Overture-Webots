@@ -22,7 +22,7 @@ PROTO TrainingBot_1 [
     "{\"type\": \"motor\", \"value\": {\"name\": \"back_left_drive\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 5.9027777, \"count\": 1, \"mechanically_inverted\": false}}",
     
     
-    "{\"type\": \"motor\", \"value\": {\"name\": \"intake_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 100.0, \"count\": 1, \"mechanically_inverted\": false}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"intake_arm\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 55.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"intake_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 2.0, \"count\": 1, \"mechanically_inverted\": false}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"elevator_motor\", \"suffix\": \"\", \"model\": \"Kraken\", \"gear_ratio\": 4.0, \"count\": 1, \"mechanically_inverted\": false, \"winch_radius\": 0.15}}",
 
