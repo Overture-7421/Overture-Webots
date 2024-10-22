@@ -1,0 +1,27 @@
+#VRML_SIM R2023b utf8
+# Describe the functionality of your PROTO here.
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+
+PROTO Chassis [
+  field SFVec3f translation 0 0 0
+  field SFRotation rotation 0.0 0.0 0.0 0.0
+]
+{
+  Transform {
+    translation IS translation
+    rotation IS rotation
+    children [
+      Shape {
+        geometry Mesh {
+          url "models/Chassis.dae"
+        }
+      }
+
+
+      
+
+    ]
+  }
+}
+  
+

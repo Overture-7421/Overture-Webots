@@ -1,0 +1,52 @@
+#VRML_SIM R2023b utf8
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
+EXTERNPROTO "Chassis.proto"
+
+
+PROTO Simulation23619 [
+  field SFVec3f translation 0 0 0
+  field SFRotation rotation 0 0 1 0
+  field SFString name "Simulation23619"
+  field SFString controller "nt_robot_controller"
+  field MFString controllerArgs [
+  ]
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    name IS name
+    controller IS controller
+    controllerArgs IS controllerArgs
+
+    children [
+      Accelerometer {},
+      Gyro {},
+      InertialUnit {
+        name "imu"
+      },
+      DEF CHASSIS_SHAPES Pose {
+        translation 0.0 0.0 0.0
+        rotation 0.0 0.0 0.0 0.0
+        children [
+          
+          DEF CHASSIS Shape {
+            appearance DEF METAL_PART BrushedAluminium {
+              textureTransform TextureTransform {
+                scale 20 20
+              }
+            }
+            geometry Mesh {
+              url "Chassis.dae"
+            }
+          }
+        ]
+      },
+      Chassis {
+        translation 0 0 0
+        rotation 0.0 0.0 0.0 0.0
+      }
+
+    ]
+  }
+}
