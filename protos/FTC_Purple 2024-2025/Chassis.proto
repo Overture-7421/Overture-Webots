@@ -1,27 +1,263 @@
 #VRML_SIM R2023b utf8
-# Describe the functionality of your PROTO here.
+
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 
 PROTO Chassis [
   field SFVec3f translation 0 0 0
   field SFRotation rotation 0.0 0.0 0.0 0.0
+  field SFString chassisRightMotor "ChassisRightMotor"
+  field SFString chassisLeftMotor "ChassisLeftMotor"
+  field SFString chassisRightPositionSensor "ChassisRightPositionSensor"
+  field SFString chassisLeftPositionSensor "ChassisLeftPositionSensor"
 ]
 {
   Transform {
     translation IS translation
     rotation IS rotation
     children [
-      Shape {
-        geometry Mesh {
-          url "models/Chassis.dae"
-        }
+      CadShape {
+        url "Models/Chassis.dae"
       }
 
+      # Right Center Wheel
+      Transform {
+        translation 0 0 -0.01
+        rotation 0.0 0.0 0.0 0.0
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 1 0
+              staticFriction 0.0
+              dampingConstant 0.25
+            }
+            device [
+              PositionSensor {
+                name IS chassisRightPositionSensor
+              }
+              RotationalMotor {
+                name IS chassisRightMotor
+                maxTorque 999999
+              }
+            ]
+            endPoint Solid {
+              name "ChassisWheelRight"
+              translation 0 0 0
+              rotation 0 0 0 0
+              children [
+                Shape {
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.035
+                  }
+                }
+              ]
+              boundingObject Cylinder {
+                height 0.02
+                radius 0.035
+              }
+              physics Physics {
+                density -1
+                mass 0.2
+                centerOfMass [0.0 0.0 0.0]
+              }
+            }
+          }
+        ]
+      }
 
-      
+      # Left Center Wheel
+      Transform {
+        translation 0 0 0
+        rotation 0.0 0.0 0.0 0.0
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 1 0
+              staticFriction 0.0
+              dampingConstant 0.25
+            }
+            device [
+              PositionSensor {
+                name IS chassisLeftPositionSensor
+              }
+              RotationalMotor {
+                name IS chassisLeftMotor
+                maxTorque 999999
+              }
+            ]
+            endPoint Solid {
+              name "ChassisWheelLeft"
+              translation 0 0 0
+              rotation 0 0 0 0
+              children [
+                Shape {
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.035
+                  }
+                }
+              ]
+              boundingObject Cylinder {
+                height 0.02
+                radius 0.035
+              }
+              physics Physics {
+                density -1
+                mass 0.2
+                centerOfMass [0.0 0.0 0.0]
+              }
+            }
+          }
+        ]
+      }
 
+      # Right Front Wheel
+      Transform {
+        translation 0.15 0.18 -0.01
+        rotation 1.0 0.0 0.0 1.57
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 1 0
+              staticFriction 0.0
+              dampingConstant 0.25
+            }
+            endPoint Solid {
+              translation 0 0 0
+              rotation 0 0 0 0
+              name "Front Right"
+              children [
+                Shape {
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.035
+                  }
+                }
+              ]
+              boundingObject Cylinder {
+                height 0.02
+                radius 0.035
+              }
+              physics Physics {
+                density -1
+                mass 0.2
+                centerOfMass [0.0 0.0 0.0]
+              }
+            }
+          }
+        ]
+      }
+
+      # Left Front Wheel
+      Transform {
+        translation 0.15 -0.18 -0.01
+        rotation 1.0 0.0 0.0 1.57
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 1 0
+              staticFriction 0.0
+              dampingConstant 0.25
+            }
+            endPoint Solid {
+              translation 0 0 0
+              rotation 0 0 0 0
+              name "Front Left"
+              children [
+                Shape {
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.035
+                  }
+                }
+              ]
+              boundingObject Cylinder {
+                height 0.02
+                radius 0.035
+              }
+              physics Physics {
+                density -1
+                mass 0.2
+                centerOfMass [0.0 0.0 0.0]
+              }
+            }
+          }
+        ]
+      }
+
+      # Right Back Wheel
+      Transform {
+        translation -0.15 0.18 -0.01
+        rotation 1.0 0.0 0.0 1.57
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 1 0
+              staticFriction 0.0
+              dampingConstant 0.25
+            }
+            endPoint Solid {
+              translation 0 0 0
+              rotation 0 0 0 0
+              name "Back Right"
+              children [
+                Shape {
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.035
+                  }
+                }
+              ]
+              boundingObject Cylinder {
+                height 0.02
+                radius 0.035
+              }
+              physics Physics {
+                density -1
+                mass 0.2
+                centerOfMass [0.0 0.0 0.0]
+              }
+            }
+          }
+        ]
+      }
+
+      # Left Back Wheel
+      Transform {
+        translation -0.15 -0.18 -0.01
+        rotation 1.0 0.0 0.0 1.57
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 1 0
+              staticFriction 0.0
+              dampingConstant 0.25
+            }
+            endPoint Solid {
+              translation 0 0 0
+              rotation 0 0 0 0
+              name "Back Left"
+              children [
+                Shape {
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.035
+                  }
+                }
+              ]
+              boundingObject Cylinder {
+                height 0.02
+                radius 0.035
+              }
+              physics Physics {
+                density -1
+                mass 0.2
+                centerOfMass [0.0 0.0 0.0]
+              }
+            }
+          }
+        ]
+      }
     ]
   }
 }
-  
-

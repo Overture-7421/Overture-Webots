@@ -9,6 +9,11 @@ PROTO Simulation23619 [
   field SFString name "Simulation23619"
   field SFString controller "nt_robot_controller"
   field MFString controllerArgs [
+  "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisRightMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 1, \"count\": 1, \"mechanically_inverted\": true}}",
+  "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisLeftMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 1, \"count\": 1, \"mechanically_inverted\": true}}",
+
+  "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisRightPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}",
+  "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisLeftPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}"
   ]
 ]
 {
@@ -20,33 +25,19 @@ PROTO Simulation23619 [
     controllerArgs IS controllerArgs
 
     children [
-      Accelerometer {},
-      Gyro {},
-      InertialUnit {
-        name "imu"
-      },
-      DEF CHASSIS_SHAPES Pose {
-        translation 0.0 0.0 0.0
-        rotation 0.0 0.0 0.0 0.0
-        children [
-          
-          DEF CHASSIS Shape {
-            appearance DEF METAL_PART BrushedAluminium {
-              textureTransform TextureTransform {
-                scale 20 20
-              }
-            }
-            geometry Mesh {
-              url "Chassis.dae"
-            }
-          }
-        ]
-      },
-      Chassis {
-        translation 0 0 0
-        rotation 0.0 0.0 0.0 0.0
-      }
-
+    
+    Chassis{
+    translation 0 0 0
+    rotation 0 0 0 0
+    }
     ]
+    boundingObject Box {
+      size 0.45 0.34 0.04
+      }
+      physics Physics {
+        density -1
+        mass 5
+        centerOfMass [0.0 0.0 0.0]
+      }
   }
 }
