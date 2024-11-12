@@ -2,18 +2,16 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 EXTERNPROTO "Chassis.proto"
 
-
 PROTO Simulation23619 [
   field SFVec3f translation 0 0 0
   field SFRotation rotation 0 0 1 0
   field SFString name "Simulation23619"
   field SFString controller "nt_robot_controller"
   field MFString controllerArgs [
-  "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisRightMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 1, \"count\": 1, \"mechanically_inverted\": true}}",
-  "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisLeftMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 1, \"count\": 1, \"mechanically_inverted\": true}}",
-
-  "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisRightPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}",
-  "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisLeftPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}"
+    "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisRightMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 1, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisLeftMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 1, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisRightPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisLeftPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}"
   ]
 ]
 {
@@ -25,19 +23,26 @@ PROTO Simulation23619 [
     controllerArgs IS controllerArgs
 
     children [
-    
-    Chassis{
-    translation 0 0 0
-    rotation 0 0 0 0
-    }
+      Chassis {
+        translation 0 0 0
+        rotation 0 0 0 0
+      }
     ]
-    boundingObject Box {
-      size 0.45 0.34 0.04
-      }
-      physics Physics {
-        density -1
-        mass 5
-        centerOfMass [0.0 0.0 0.0]
-      }
+
+    # Bounding Object with Rotation and Translation
+    boundingObject Transform {
+      translation 0 0 -0.04
+      rotation 0 0 0 0
+      children [
+        Box {
+          size 0.4 0.34 0.04
+        }
+      ]
+    }
+    physics Physics {
+      density -1
+      mass 5
+      centerOfMass [0.0 0.0 0.0]
+    }
   }
 }

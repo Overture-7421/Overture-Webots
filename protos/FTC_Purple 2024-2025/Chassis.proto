@@ -13,16 +13,16 @@ PROTO Chassis [
 {
   Transform {
     translation IS translation
-    rotation IS rotation
+    rotation 0 0 1 1.57  # Rotating the entire chassis 90 degrees around the Z-axis
     children [
       CadShape {
-        url "Models/Chassis.dae"
+        url "Models/Chassis 2.dae"
       }
 
       # Right Center Wheel
       Transform {
-        translation 0 0.18 0
-        rotation 1.0 0.0 0.0 1.57
+        translation 0.18 0 -0.05
+        rotation 0.0 1.0 0.0 1.57
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
@@ -72,8 +72,8 @@ PROTO Chassis [
 
       # Left Center Wheel
       Transform {
-        translation 0 -0.18 0
-        rotation 1.0 0.0 0.0 1.57
+        translation -0.18 0 -0.05
+        rotation 0.0 1.0 0.0 1.57
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
@@ -121,10 +121,11 @@ PROTO Chassis [
         ]
       }
 
-      # Left Front Wheel
+
+      # Left Back Wheel
       Transform {
-        translation 0.14 -0.18 0.001
-        rotation 1.0 0.0 0.0 1.57
+        translation -0.18 0.13 -0.04
+        rotation 0.0 1.0 0.0 1.57
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
@@ -163,52 +164,10 @@ PROTO Chassis [
         ]
       }
 
-      # Left Back Wheel
+      # Right Back Wheel
       Transform {
-        translation -0.14 -0.18 0.001
-        rotation 1.0 0.0 0.0 1.57
-        children [
-          HingeJoint {
-            jointParameters HingeJointParameters {
-              axis 0 0 1
-              staticFriction 0.0
-              dampingConstant 0.25
-            }
-            endPoint Solid {
-              name "ChassisWheelBackLeft"
-              translation 0 0 0
-              rotation 0 0 0 0
-              children [
-                Shape {
-                  appearance Appearance {
-                    material Material {
-                      diffuseColor 0.2 0.2 0.2
-                    }
-                  }
-                  geometry Cylinder {
-                    height 0.02
-                    radius 0.035
-                  }
-                }
-              ]
-              boundingObject Cylinder {
-                height 0.02
-                radius 0.035
-              }
-              physics Physics {
-                density -1
-                mass 0.2
-                centerOfMass [0.0 0.0 0.0]
-              }
-            }
-          }
-        ]
-      }
-
-      # Right Front Wheel
-      Transform {
-        translation 0.14 0.18 0.001
-        rotation 1.0 0.0 0.0 1.57
+        translation 0.18 0.13 -0.04
+        rotation 0.0 1.0 0.0 1.57
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
@@ -247,10 +206,10 @@ PROTO Chassis [
         ]
       }
 
-      # Right Back Wheel
+      # Right Front Wheel
       Transform {
-        translation -0.14 0.18 0
-        rotation 1.0 0.0 0.0 1.57
+        translation 0.18 -0.13 -0.04
+        rotation 0.0 1.0 0.0 1.57
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
@@ -260,6 +219,48 @@ PROTO Chassis [
             }
             endPoint Solid {
               name "ChassisWheelBackRight"
+              translation 0 0 0
+              rotation 0 0 0 0
+              children [
+                Shape {
+                  appearance Appearance {
+                    material Material {
+                      diffuseColor 0.2 0.2 0.2
+                    }
+                  }
+                  geometry Cylinder {
+                    height 0.02
+                    radius 0.035
+                  }
+                }
+              ]
+              boundingObject Cylinder {
+                height 0.02
+                radius 0.035
+              }
+              physics Physics {
+                density -1
+                mass 0.2
+                centerOfMass [0.0 0.0 0.0]
+              }
+            }
+          }
+        ]
+      }
+
+      # Left Front Wheel
+      Transform {
+        translation -0.18 -0.13 -0.04
+        rotation 0.0 1.0 0.0 1.57
+        children [
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              axis 0 0 1
+              staticFriction 0.0
+              dampingConstant 0.25
+            }
+            endPoint Solid {
+              name "ChassisWheelBackLeft"
               translation 0 0 0
               rotation 0 0 0 0
               children [
