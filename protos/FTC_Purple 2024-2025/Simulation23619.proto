@@ -1,6 +1,7 @@
 #VRML_SIM R2023b utf8
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 EXTERNPROTO "Chassis.proto"
+EXTERNPROTO "RotationArm.proto"
 
 PROTO Simulation23619 [
   field SFVec3f translation 0 0 0
@@ -8,10 +9,13 @@ PROTO Simulation23619 [
   field SFString name "Simulation23619"
   field SFString controller "nt_robot_controller"
   field MFString controllerArgs [
-    "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisRightMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 1, \"count\": 1, \"mechanically_inverted\": true}}",
-    "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisLeftMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 1, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisRightMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 12, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisLeftMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 12, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"motor\", \"value\": {\"name\": \"RotationMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 12, \"count\": 1, \"mechanically_inverted\": true}}",
+    
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisRightPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}",
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisLeftPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}"
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisLeftPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"RotationPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}"
   ]
 ]
 {
@@ -27,6 +31,11 @@ PROTO Simulation23619 [
         translation 0 0 0
         rotation 0 0 0 0
       }
+
+      RotationArm {
+        translation -0.17 0 0.18
+        rotation 0 0 -1 1.57
+      }
     ]
 
     # Bounding Object with Rotation and Translation
@@ -41,7 +50,7 @@ PROTO Simulation23619 [
     }
     physics Physics {
       density -1
-      mass 5
+      mass 2
       centerOfMass [0.0 0.0 0.0]
     }
   }

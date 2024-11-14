@@ -78,8 +78,8 @@ PROTO Chassis [
           HingeJoint {
             jointParameters HingeJointParameters {
               axis 0 0 1
-              staticFriction 0.0
-              dampingConstant 0.25
+              staticFriction 0.01
+              dampingConstant 0.1
             }
             device [
               PositionSensor {
@@ -124,14 +124,14 @@ PROTO Chassis [
 
       # Left Back Wheel
       Transform {
-        translation -0.18 0.13 -0.04
+        translation -0.18 0.13 -0.05
         rotation 0.0 1.0 0.0 1.57
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
               axis 0 0 1
-              staticFriction 0.0
-              dampingConstant 0.25
+              staticFriction 0.01
+              dampingConstant 0.1
             }
             endPoint Solid {
               name "ChassisWheelFrontLeft"
@@ -166,14 +166,14 @@ PROTO Chassis [
 
       # Right Back Wheel
       Transform {
-        translation 0.18 0.13 -0.04
+        translation 0.18 0.13 -0.05
         rotation 0.0 1.0 0.0 1.57
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
               axis 0 0 1
-              staticFriction 0.0
-              dampingConstant 0.25
+              staticFriction 0.01
+              dampingConstant 0.1
             }
             endPoint Solid {
               name "ChassisWheelFrontRight"
@@ -208,14 +208,14 @@ PROTO Chassis [
 
       # Right Front Wheel
       Transform {
-        translation 0.18 -0.13 -0.04
+        translation 0.18 -0.13 -0.05
         rotation 0.0 1.0 0.0 1.57
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
               axis 0 0 1
-              staticFriction 0.0
-              dampingConstant 0.25
+              staticFriction 0.01
+              dampingConstant 0.1
             }
             endPoint Solid {
               name "ChassisWheelBackRight"
@@ -250,14 +250,14 @@ PROTO Chassis [
 
       # Left Front Wheel
       Transform {
-        translation -0.18 -0.13 -0.04
+        translation -0.18 -0.13 -0.05
         rotation 0.0 1.0 0.0 1.57
         children [
           HingeJoint {
             jointParameters HingeJointParameters {
               axis 0 0 1
-              staticFriction 0.0
-              dampingConstant 0.25
+              staticFriction 0.01
+              dampingConstant 0.1
             }
             endPoint Solid {
               name "ChassisWheelBackLeft"
@@ -282,7 +282,7 @@ PROTO Chassis [
               }
               physics Physics {
                 density -1
-                mass 0.2
+                mass 2
                 centerOfMass [0.0 0.0 0.0]
               }
             }
