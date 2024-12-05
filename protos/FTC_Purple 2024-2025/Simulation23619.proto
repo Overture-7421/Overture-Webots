@@ -2,6 +2,7 @@
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
 EXTERNPROTO "Chassis.proto"
 EXTERNPROTO "RotationArm.proto"
+EXTERNPROTO "Elevator.proto"
 
 PROTO Simulation23619 [
   field SFVec3f translation 0 0 0
@@ -12,10 +13,18 @@ PROTO Simulation23619 [
     "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisRightMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 12, \"count\": 1, \"mechanically_inverted\": true}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"ChassisLeftMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 12, \"count\": 1, \"mechanically_inverted\": true}}",
     "{\"type\": \"motor\", \"value\": {\"name\": \"RotationMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 12, \"count\": 1, \"mechanically_inverted\": true}}",
-    
+
+    "{\"type\": \"motor\", \"value\": {\"name\": \"ElevatorMotor\", \"suffix\": \"\", \"model\": \"Falcon\", \"gear_ratio\": 12, \"count\": 1, \"mechanically_inverted\": true}}",
+    "{\"type\": \"linked\", \"value\": {\"source_name\": \"ElevatorMotor\", \"target_name\": \"ElevatorMotorMiddle\", \"inverted\": false}}",
+    "{\"type\": \"linked\", \"value\": {\"source_name\": \"ElevatorMotor\", \"target_name\": \"ElevatorMotorUpper\", \"inverted\": false}}",
+
+
+
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisRightPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}",
     "{\"type\": \"cancoder\", \"value\": {\"name\": \"ChassisLeftPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}",
-    "{\"type\": \"cancoder\", \"value\": {\"name\": \"RotationPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}"
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"RotationPositionSensor\", \"inverted\": false, \"offsetDeg\": 0}}",
+    "{\"type\": \"cancoder\", \"value\": {\"name\": \"ElevatorPostionSensor\", \"inverted\": false, \"offsetDeg\": 0}}",
+
   ]
 ]
 {
@@ -29,12 +38,17 @@ PROTO Simulation23619 [
     children [
       Chassis {
         translation 0 0 0
-        rotation 0 0 0 0
+        rotation 0 0 1 1.57
       }
 
       RotationArm {
-        translation -0.17 0 0.18
+        translation -0.08 0 0.18
         rotation 0 0 -1 1.57
+      }
+
+      Elevator {
+        translation -0.11 0 0.2
+        rotation 0 0 1 1.5708
       }
     ]
 

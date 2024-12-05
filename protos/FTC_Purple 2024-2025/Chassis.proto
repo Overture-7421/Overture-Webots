@@ -4,7 +4,7 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 
 PROTO Chassis [
   field SFVec3f translation 0 0 0
-  field SFRotation rotation 0.0 0.0 0.0 0.0
+  field SFRotation rotation 0 0 1 1.57
   field SFString chassisRightMotor "ChassisRightMotor"
   field SFString chassisLeftMotor "ChassisLeftMotor"
   field SFString chassisRightPositionSensor "ChassisRightPositionSensor"
@@ -13,10 +13,10 @@ PROTO Chassis [
 {
   Transform {
     translation IS translation
-    rotation 0 0 1 1.57  # Rotating the entire chassis 90 degrees around the Z-axis
+    rotation IS rotation
     children [
       CadShape {
-        url "Models/Chassis 2.dae"
+        url "Models/Chassis.dae"
       }
 
       # Right Center Wheel
@@ -120,7 +120,6 @@ PROTO Chassis [
           }
         ]
       }
-
 
       # Left Back Wheel
       Transform {
@@ -282,7 +281,7 @@ PROTO Chassis [
               }
               physics Physics {
                 density -1
-                mass 2
+                mass 0.2
                 centerOfMass [0.0 0.0 0.0]
               }
             }

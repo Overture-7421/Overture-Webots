@@ -7,39 +7,50 @@ PROTO RotationArm [
   field SFRotation rotation 0 0 0 0
   field SFString rotationMotor "RotationMotor"
   field SFString rotationPositionSensor "RotationPositionSensor"
-
-
-  
 ]
 {
   Transform {
     translation IS translation
     rotation IS rotation
     children [
-      CadShape {
-        url "Models/RotationArm.dae"
-      }
-      Transform {
-        translation 0 0 0
-        rotation 0 1 0 1.57
-        children [
-          HingeJoint {
-            jointParameters HingeJointParameters {
-              axis 0 0 1
-              staticFriction 0.01
-              dampingConstant 0.1
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 1 0 0
+          staticFriction 0.01
+          dampingConstant 0.1
+          anchor 0 0 0
+        }
+        device [
+          PositionSensor {
+            name IS rotationPositionSensor
+          }
+          RotationalMotor {
+            name IS rotationMotor
+            maxTorque 999999
+          }
+        ]
+        endPoint Solid {
+          name "RotationArmPart"
+          children [
+            CadShape {
+              url "Models/RotationArm.dae"
             }
-            device [
-              PositionSensor {
-                name IS rotationPositionSensor
-              }
-              RotationalMotor {
-                name IS rotationMotor
-                maxTorque 999999
+          ]
+          physics Physics {
+            density -1
+            mass 0.5
+            centerOfMass [0.0 0.0 0.0]
+          }
+          boundingObject Transform {
+            rotation 0 1 0 1.5708
+            children [
+              Cylinder {
+                radius 0.05
+                height 0.10
               }
             ]
           }
-        ]
+        }
       }
     ]
   }
