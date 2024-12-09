@@ -52,7 +52,6 @@ PROTO Simulation23619 [
       }
     ]
 
-    # Bounding Object with Rotation and Translation
     boundingObject Transform {
       translation 0 0 -0.04
       rotation 0 0 0 0

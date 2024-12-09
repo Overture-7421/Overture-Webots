@@ -1,109 +1,107 @@
 #VRML_SIM R2023b utf8
 
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/BrushedAluminium.proto"
-
 PROTO Elevator [
 field SFVec3f translation 0.0 0 0.0
 field SFRotation rotation 0.0 0.0 0.0 0.0
 ]
 {
 Transform {
-translation IS translation
-rotation IS rotation
-children [
+    translation IS translation
+    rotation IS rotation
+    children [
     Shape {
-    geometry Mesh {
+        geometry Mesh {
         url "models/Elevator.dae"
-    }
-    appearance Appearance {
-        material Material {
-        diffuseColor 0.4235 0.7882 0.2941
         }
-    }
+        appearance Appearance {
+        material Material {
+            diffuseColor 0.4235 0.7882 0.2941
+        }
+        }
     },
     Transform {
-    translation 0 0 0
-    rotation 0 0 1 1.5708
-    children [
+        translation 0 0 0
+        rotation 0 0 1 1.5708
+        children [
         SliderJoint {
-        jointParameters JointParameters {
+            jointParameters JointParameters {
             staticFriction 0.1
             dampingConstant 45.0
             axis 0 0 1
             maxStop 0.45
             minStop 0.0
-        }
-        device [
+            }
+            device [
             PositionSensor {
-            name "ElevatorPostionSensor"
+                name "ElevatorPostionSensor"
             }
             LinearMotor {
-            name "ElevatorMotor"
-            maxForce 200
+                name "ElevatorMotor"
+                maxForce 200
             }
-        ]
-        endPoint Solid {
+            ]
+            endPoint Solid {
             name "ElevatorSecondStage"
-            translation 0 0 0
+            translation 0 0 1
             children [
-            Shape {
+                Shape {
                 geometry Mesh {
-                url "models/Elevator2.dae"
+                    url "models/Elevator2.dae"
                 }
                 appearance Appearance {
-                material Material {
-                    diffuseColor 0.4235 0.7882 0.2941 
+                    material Material {
+                    diffuseColor 0.4235 0.7882 0.2941
+                    }
                 }
-                }
-            },
-            Transform {
+                },
+                Transform {
                 translation 0 0 0
                 rotation 0 0 0 0
                 children [
-                SliderJoint {
+                    SliderJoint {
                     jointParameters JointParameters {
-                    staticFriction 0.1
-                    dampingConstant 45.0
-                    axis 0 0 1
-                    maxStop 1.0
-                    minStop 0.0
+                        staticFriction 0.1
+                        dampingConstant 45.0
+                        axis 0 0 1
+                        maxStop 1.0
+                        minStop 0.0
                     }
                     device [
-                    PositionSensor {
+                        PositionSensor {
                         name "ElevatorPostionSensor"
-                    }
-                    LinearMotor {
+                        }
+                        LinearMotor {
                         name "ElevatorMotorMiddle"
                         maxForce 200
-                    }
+                        }
                     ]
                     endPoint Solid {
-                    name "ElevatorThirdStage"
-                    translation 0 0 0
-                    children [
+                        name "ElevatorThirdStage"
+                        translation 0 0 0
+                        children [
                         Shape {
-                        geometry Mesh {
+                            geometry Mesh {
                             url "models/Elevator2.dae"
-                        }
-                        appearance Appearance {
-                            material Material {
-                            diffuseColor 0.4235 0.7882 0.2941
                             }
-                        }
+                            appearance Appearance {
+                            material Material {
+                                diffuseColor 0.4235 0.7882 0.2941
+                            }
+                            }
                         },
                         Transform {
-                        translation 0 0 0
-                        rotation 0 0 0 0
-                        children [
+                            translation 0 0 0
+                            rotation 0 0 0 0
+                            children [
                             SliderJoint {
-                            jointParameters JointParameters {
+                                jointParameters JointParameters {
                                 staticFriction 0.1
                                 dampingConstant 45.0
                                 axis 0 0 1
                                 maxStop 1.0
                                 minStop 0.0
-                            }
-                            device [
+                                }
+                                device [
                                 PositionSensor {
                                 name "ElevatorPostionSensor"
                                 }
@@ -111,46 +109,42 @@ children [
                                 name "ElevatorMotorUpper"
                                 maxForce 200
                                 }
-                            ]
+                                ]
                             }
-                        ]
+                            ]
                         }
-                    ]
-                    boundingObject Mesh {
-                        url "models/Elevator2.dae"
-                    }
-                    physics Physics {
+                        ]
+                        boundingObject Mesh {
+                        url "models/Elevator.dae"
+                        }
+                        physics Physics {
                         density -1
                         mass 2.5
                         centerOfMass [0.0 0.0 0.0]
+                        }
                     }
                     }
-                }
                 ]
-            }
+                }
             ]
             boundingObject Transform {
                 translation 0.037 0.001 0
                 rotation 0 0 1 1.5708
                 children [
-                    Mesh {
-                        url "models/Elevator.dae"
-                    }
+                Mesh {
+                    url "models/Elevator.dae"
+                }
                 ]
             }
             physics Physics {
-            density -1
-            mass 2.5
-            centerOfMass [0.0 0.0 0.0]
+                density -1
+                mass 2.5
+                centerOfMass [0.0 0.0 0.0]
+            }
             }
         }
-        }
-    ]
+        ]
     }
-]
+    ]
 }
 }
-
-
-
-
